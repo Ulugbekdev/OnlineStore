@@ -1,0 +1,55 @@
+@import '../../../styles/colorVariables';
+
+//search
+.search {
+	width: 100%;
+	max-width: 0;
+	position: relative;
+	transition: .3s max-width linear;
+
+    &__input {
+        opacity: 0;
+        width: 100%;
+        height: 42px;
+        border: none;
+        padding-left: 15px; 
+        border-radius: 50px;
+        background: rgba(0, 0, 0, 0.05);
+        transition: .3s opacity linear;
+    }
+
+    &__btnOpen, &__btnClose {
+    	color: #3f6ad8;
+    	border-radius: 50%;
+    	position: absolute;
+    	top: 0;
+    }
+
+    &__btnOpen {
+    	left: 100%;
+    	background: rgba(0, 0, 0, 0.09);
+    }
+
+    &__btnClose {
+    	left: 100%;
+    	display: none;
+    	background: transparent;
+    }
+
+    &_active {
+    	max-width: 290px;
+
+    	& .search__input {
+    		opacity: 1;
+    	}
+
+    	& .search__btnOpen {
+    		right: 0;
+    		left: initial;
+    	}
+
+    	& .search__btnClose {
+    		display: block;
+    	}
+    }
+}

@@ -1,0 +1,54 @@
+@import '../../../styles/colorVariables';
+
+//user header
+.user {
+    display: flex;
+    align-items: center;
+
+    &__btn {
+        margin-right: 12px;
+        border-radius: 50%;
+        position: relative;
+        // background: url(../../img/1.jpg) no-repeat center;
+
+        &_calendar {
+            width: 30px;
+            height: 30px;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 3px;
+            background: $blue;
+            box-shadow: 0 0.125rem 0.625rem rgb(22 170 255 / 50%), 0 0.0625rem 0.125rem rgb(22 170 255 / 60%);
+        }
+
+        &::before {
+            content: "";
+            border-top: 3px solid $blue;
+            border-right: 3px solid transparent;
+            border-left: 3px solid transparent;
+            border-bottom: 0;
+            position: absolute;
+            top: 50%;
+            right: -16px;
+            transform: translateY(-50%);
+        }
+    }
+
+    &__heading {
+        margin: 0 16px;
+    }
+
+    &__name {
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    &__logOffBtn {
+        color: $white;
+        padding: 10px;
+        margin: 0 10px;
+        background: $gray;
+    }
+}

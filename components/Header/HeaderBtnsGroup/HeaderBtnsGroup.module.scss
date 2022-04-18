@@ -1,0 +1,41 @@
+@import '../../../styles/colorVariables';
+
+//btns-group
+.btnsGroup {
+	display: flex;
+	align-items: center;
+
+	&__btn {
+		&_menu {
+			color: $blue;
+			background: rgba(63, 106, 216, 0.2);
+		}
+
+		&_speaker {
+			color: #d92550;
+			background: rgba(217, 37, 80, 0.2);
+		}
+
+		&_lang {
+			padding: 8px;
+			// background: url("../../img/de.svg");
+		}
+
+		&_graph {
+			color: #3ac47d;
+			background: rgba(58, 196, 125, 0.2);
+		}
+
+		& + & {
+			margin-left: 8px;
+		}
+	}
+
+	&__span {
+		width: 28px;
+		height: 28px;
+		display: block;
+		border-radius: 50%;
+		// background: url("../../img/de.svg");
+	}
+}

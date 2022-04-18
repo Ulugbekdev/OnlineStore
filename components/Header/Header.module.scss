@@ -1,0 +1,63 @@
+@import '../../styles/colorVariables';
+
+/*header*/
+.header {
+    height: 60px;
+    box-shadow: 7px 0 60px rgb(0 0 0 / 5%);
+    transition: .3s padding linear;
+
+    &_width_all {
+        padding-left: 82px;
+    }
+
+    &__content {
+        height: 100%;
+        display: flex;
+        padding: 0 24px;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__item {
+        padding: 0 24px;
+        position: relative;
+
+        &+& {
+            &::before {
+                content: "";
+                width: 1px;
+                height: 30px;
+                display: block;
+                background: gray;
+                position: absolute;
+                top: 50%;
+                right: 100%;
+                transform: translateY(-50%);
+            }
+        }
+    }
+
+    &__btn {
+        width: 42px;
+        height: 42px;
+        border: none;
+        font-size: 18px;
+        cursor: pointer;
+        border-radius: 50%;
+    }
+
+    &__switchBtn {
+        background: $headerBurger;
+
+        &::before,
+        &::after {
+            background: $headerBurger;
+        }
+    }
+}

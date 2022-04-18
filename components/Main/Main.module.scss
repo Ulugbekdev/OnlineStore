@@ -1,0 +1,22 @@
+.main {
+    display: flex;
+
+    &__sidebar {
+        width: 280px;
+        z-index: 1000;
+
+        &_active {
+            width: 98px;
+        }
+    }
+
+    &__content {
+        flex-grow: 1;
+        width: calc(100% - 280px);
+        transition: .3s width linear;
+    }
+
+    &__wrapper {
+        padding: 30px;
+    }
+}
