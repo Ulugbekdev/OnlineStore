@@ -1,13 +1,20 @@
+import { useRouter } from 'next/router';
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useDispatch, useSelector } from "react-redux";
 import { logOutAc } from "../../../redux/reducers/loginReducer";
 import HeaderBtn from '../HeaderBtn/HeaderBtn';
 import userStyle from './HeaderUserData.module.scss';
+import { useEffect } from 'react';
 
 const User = () => {
     const userName = useSelector(state => state.login.userName);
+    const router = useRouter();
     const dispatch = useDispatch();
+
+    useEffect(() => {
+        if (!userName) router.replace('/login');
+    }, [userName])
 
     const logOutEvent = () => {
         localStorage.removeItem("userName");

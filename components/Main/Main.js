@@ -1,6 +1,6 @@
 import { createRef, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getLoginAc } from '../../redux/reducers/loginReducer';
 import { getLocalDataUser } from '../../lib/getLocalData';
 import Header from '../Header/Header';
@@ -22,7 +22,6 @@ const Main = ({ children, ...props }) => {
     useEffect(() => {
         mainSidebarRef.current.classList.toggle(mainStyle.main__sidebar_active);
     }, [isChangeWidth]);
-
 
     return (
         <>

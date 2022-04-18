@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getlogin } from '../redux/reducers/loginReducer';
 import { useRouter } from 'next/router';
@@ -7,10 +7,14 @@ import loginStyle from '../styles/Login.module.scss';
 import Head from 'next/head';
 
 const Login = () => {
-    const router = useRouter();
-    const dispatch = useDispatch();
     const [isRedirectToMain, setIsRedirectToMain] = useState(false);
     const [isRedirectToRegister, setIsRedirectToRegister] = useState(false);
+    const router = useRouter();
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        if (localStorage.getItem('userName')) router.replace('/');
+    }, [])
 
     const submitEvent = (data, formEvent) => {
         const errorSpan = formEvent.target.children[2];

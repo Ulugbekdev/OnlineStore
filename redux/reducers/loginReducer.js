@@ -44,5 +44,5 @@ export const register = (data) => async dispatch => {
     const res = await login.register(data);
     localStorage.setItem('userName', res.data.userData.login);
     localStorage.setItem('userId', res.data.userData.id);
-    dispatch(getLoginAc(res.userData));
+    dispatch(getLoginAc(res.data.userData));
 }

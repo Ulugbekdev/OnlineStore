@@ -12,8 +12,7 @@ const Register = () => {
     
 
     const submitEvent = (data, formEvent) => {
-        dispatch(register(data));
-        setIsRedirectToMain(true);
+        dispatch(register(data)).then(() => setIsRedirectToMain(true));
     }
 
     if (isRedirectToMain) router.replace('/');
