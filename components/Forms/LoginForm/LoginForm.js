@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import formStyle from './LoginForm.module.scss';
 
-const LoginForm = ({submitEvent, changeLogin, changePassword, ...props}) => {
+const LoginForm = ({submitEvent, ...props}) => {
     const [loginVal, setLoginVal] = useState('');
     const [passwordVal, setPasswordVal] = useState('');
 
