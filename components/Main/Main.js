@@ -16,7 +16,10 @@ const Main = ({ children, ...props }) => {
     useEffect(() => {
         const userData = getLocalDataUser();
         if (!userData.id) router.replace('/login');
-        dispatch(getLoginAc(userData));
+        dispatch(getLoginAc({
+            userId: userData.id,
+            userName: userData.login
+        }));
     }, []);
 
     useEffect(() => {

@@ -2,9 +2,25 @@ import {notes} from '../requests/requests';
 
 const ADD_NOTES = 'ADD-NOTES';
 
-let initialState = {};
+type InitialStateType = {
+    notes: Array<object> | null
+};
 
-export default function notesReducer (state = initialState, action) {
+type AddNotesAcPayloadType = {
+    text: string
+    date: string
+}
+
+type AddNotesAcType = {
+    type: typeof ADD_NOTES
+    notes: Array<AddNotesAcPayloadType>
+}
+
+let initialState: InitialStateType = {
+    notes: null
+}
+
+export default function notesReducer (state = initialState, action): InitialStateType {
     switch (action.type) {
         case ADD_NOTES:
             return {
@@ -16,11 +32,11 @@ export default function notesReducer (state = initialState, action) {
     }
 }
 
-const addNotesAc = notes => ({type: ADD_NOTES, notes: notes});
+const addNotesAc = (notes): AddNotesAcType => ({type: ADD_NOTES, notes: notes});
 
 export const getNotes = userId => async dispatch => {
     const res = await notes.getNotes(userId);
-    dispatch(addNotesAc(res));
+    dispatch(addNotesAc(res.data.body));
 };
 
 export const addNotes = data => dispatch => {

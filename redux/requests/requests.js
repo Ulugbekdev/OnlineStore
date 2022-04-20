@@ -24,7 +24,7 @@ export const notes = {
         return initial.post('add-notes', jsonData);
     },
     getNotes(userId) {
-        return initial.get(`notes/${userId}`).then(res => res.data.body);
+        return initial.get(`notes/${userId}`);
     }, 
     delNotes(data) {
         const jsonData = JSON.stringify(data);
