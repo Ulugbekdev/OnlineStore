@@ -1,4 +1,3 @@
-import cs from 'classnames';
 import { faBars, faVolumeDown, faEarthAmericas, faChartPie } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import HeaderBtn from '../HeaderBtn/HeaderBtn';

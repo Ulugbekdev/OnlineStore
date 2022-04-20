@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '../redux/hooks';
 import { register } from '../redux/reducers/loginReducer';
 import { useRouter } from 'next/router';
 import LoginForm from '../components/Forms/LoginForm/LoginForm';
@@ -7,7 +7,7 @@ import registerStyle from '../styles/Register.module.scss';
 
 const Register = () => {
     const router = useRouter();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const [isRedirectToMain, setIsRedirectToMain] = useState(false);
     
 

@@ -1,6 +1,6 @@
 import { createRef, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import { useDispatch, useSelector } from 'react-redux';
+import { useAppDispatch } from '../../redux/hooks';
 import { getLoginAc } from '../../redux/reducers/loginReducer';
 import { getLocalDataUser } from '../../lib/getLocalData';
 import Header from '../Header/Header';
@@ -10,7 +10,7 @@ import mainStyle from './Main.module.scss';
 const Main = ({ children, ...props }) => {
     const [isChangeWidth, setIsChangeWidth] = useState(false);
     const router = useRouter();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
     const mainSidebarRef = createRef();
 
     useEffect(() => {

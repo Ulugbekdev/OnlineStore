@@ -1,20 +1,20 @@
-import Head from "next/head";
-import { createRef, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import cs from "classnames";
-import { getLocalDataUser } from "../lib/getLocalData";
-import { addNotes, delNotes, getNotes } from "../redux/reducers/notesReducer";
-import Main from "../components/Main/Main";
-import notesStyle from "../styles/Notes.module.scss";
+import Head from 'next/head';
+import { createRef, useEffect, useState } from 'react';
+import { useAppDispatch, useAppSelector } from '../redux/hooks';
+import cs from 'classnames';
+import { getLocalDataUser } from '../lib/getLocalData';
+import { addNotes, delNotes, getNotes } from '../redux/reducers/notesReducer';
+import Main from '../components/Main/Main';
+import notesStyle from '../styles/Notes.module.scss';
 
 export default function Notes() {
-  const [dateVal, setDateVal] = useState("");
-  const [notesVal, setNotesVal] = useState("");
-  const userId = useSelector(state => state.login.userId);
-  const notes = useSelector(state => state.notes.notes);
-  const dispatch = useDispatch();
+  const [dateVal, setDateVal] = useState('');
+  const [notesVal, setNotesVal] = useState('');
+  const userId = useAppSelector(state => state.login.userId);
+  const notes = useAppSelector(state => state.notes.notes);
+  const dispatch = useAppDispatch();
   const errorVal = createRef();
-
+  
   useEffect(() => {
     const userData = getLocalDataUser();
     dispatch(getNotes(userData.id));
@@ -23,7 +23,7 @@ export default function Notes() {
   const submitEvent = (e) => {
     e.preventDefault();
 
-    if (dateVal === "" || notesVal === "") return (errorVal.current.innerHTML = "all fields are required");
+    if (dateVal === '' || notesVal === '') return (errorVal.current.innerHTML = 'all fields are required');
 
     const newData = {
       id: userId,
@@ -32,13 +32,13 @@ export default function Notes() {
     };
 
     dispatch(addNotes(newData)).then(() => dispatch(getNotes(userId)));
-    setDateVal("");
-    setNotesVal("");
+    setDateVal('');
+    setNotesVal('');
   };
 
   const deleteEvent = (e) => {
-	const delTextVal = e.target.parentNode.previousElementSibling.previousElementSibling.innerHTML;
-	const delDateVal = e.target.parentNode.previousElementSibling.innerHTML;
+    const delTextVal = e.target.parentNode.previousElementSibling.previousElementSibling.innerHTML;
+    const delDateVal = e.target.parentNode.previousElementSibling.innerHTML;
     const newData = {
       id: userId,
       date: delDateVal,
@@ -78,13 +78,13 @@ export default function Notes() {
           >
             <input
               className={notesStyle.notes__formItem}
-              type={"date"}
+              type={'date'}
               value={dateVal}
               onChange={(e) => setDateVal(e.target.value)}
             />
             <textarea
               className={notesStyle.notes__formItem}
-              placeholder="Notes..."
+              placeholder='Notes...'
               value={notesVal}
               onChange={(e) => setNotesVal(e.target.value)}
             />

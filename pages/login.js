@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '../redux/hooks';
 import { getlogin } from '../redux/reducers/loginReducer';
 import { useRouter } from 'next/router';
 import LoginForm from '../components/Forms/LoginForm/LoginForm';
@@ -10,7 +10,7 @@ const Login = () => {
     const [isRedirectToMain, setIsRedirectToMain] = useState(false);
     const [isRedirectToRegister, setIsRedirectToRegister] = useState(false);
     const router = useRouter();
-    const dispatch = useDispatch();
+    const dispatch = useAppDispatch();
 
     useEffect(() => {
         if (localStorage.getItem('userName')) router.replace('/');
