@@ -2,25 +2,33 @@ import {notes} from '../requests/requests';
 
 const ADD_NOTES = 'ADD-NOTES';
 
-type InitialStateType = {
+type InitialState = {
     notes: Array<object> | null
 };
 
-type AddNotesAcPayloadType = {
+type AddNotesAcPayload = {
     text: string
     date: string
 }
 
-type AddNotesAcType = {
+type AddNotesAc = {
     type: typeof ADD_NOTES
-    notes: Array<AddNotesAcPayloadType>
+    notes: Array<AddNotesAcPayload>
 }
 
-let initialState: InitialStateType = {
+type GetNotes = string | null;
+
+type NotesFormData = {
+    id: string | null
+    date: string | null
+    text: string | null
+}
+
+let initialState: InitialState = {
     notes: null
 }
 
-export default function notesReducer (state = initialState, action): InitialStateType {
+export default function notesReducer (state = initialState, action): InitialState {
     switch (action.type) {
         case ADD_NOTES:
             return {
@@ -32,17 +40,17 @@ export default function notesReducer (state = initialState, action): InitialStat
     }
 }
 
-const addNotesAc = (notes): AddNotesAcType => ({type: ADD_NOTES, notes: notes});
+const addNotesAc = (notes): AddNotesAc => ({type: ADD_NOTES, notes: notes});
 
-export const getNotes = userId => async dispatch => {
+export const getNotes = (userId: GetNotes) => async dispatch => {
     const res = await notes.getNotes(userId);
     dispatch(addNotesAc(res.data.body));
 };
 
-export const addNotes = data => dispatch => {
+export const addNotes = (data: NotesFormData) => dispatch => {
     return notes.addNotes(data);
 };
 
-export const delNotes = data => dispatch => {
+export const delNotes = (data: NotesFormData) => dispatch => {
     return notes.delNotes(data);
 };
