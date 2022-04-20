@@ -15,7 +15,7 @@ const Login = () => {
 
     useEffect(() => {
         const userData = getLocalDataUser();
-        if (userData.login) router.replace('/');
+        if (userData.login) setIsRedirectToMain(true);
     }, [])
 
     const submitEvent = (data, formEvent) => {
