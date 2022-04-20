@@ -8,25 +8,25 @@ const initial = axios.create({
 })
 
 export const login = {
-    getLogin(data) {
+    getLogin(data): any {
         const jsonData = JSON.stringify(data);
         return initial.post('login', jsonData);
     },
-    register(data) {
+    register(data): any {
         const jsonData = JSON.stringify(data);
         return initial.post('registration', jsonData);
     }
 }
 
 export const notes = {
-    addNotes(data) {
+    addNotes(data): any {
         const jsonData = JSON.stringify(data);
         return initial.post('add-notes', jsonData);
     },
-    getNotes(userId) {
+    getNotes(userId): any {
         return initial.get(`notes/${userId}`);
-    }, 
-    delNotes(data) {
+    },
+    delNotes(data): any {
         const jsonData = JSON.stringify(data);
         return initial.delete('del-notes', {
             data: jsonData

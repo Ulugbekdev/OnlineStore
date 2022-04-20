@@ -2,7 +2,7 @@ import cs from 'classnames';
 import burgerStyle from './Burger.module.scss';
 
 
-const Burger = ({classNameBurger, classNameBurgerBtn, clickEvent = null, ...props}) => {
+const Burger = ({classNameBurgerBtn = null, classNameBurger = null, clickEvent = null, ...props}) => {
     const onClickEvent = () => {
         if (clickEvent === null) return;
         return clickEvent();

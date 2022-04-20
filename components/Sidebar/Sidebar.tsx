@@ -1,5 +1,4 @@
-import cs from 'classnames';
-import { faNoteSticky, faAngleDown } from "@fortawesome/free-solid-svg-icons";
+import { faNoteSticky } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Burger from '../Burger/Burger';
 import sidebarStyle from './Sidebar.module.scss';
