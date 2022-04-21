@@ -1,7 +1,7 @@
 import cs from 'classnames';
 import headerStyle from '../Header.module.scss';
 
-const HeaderBtn = ({ className = null, children = null, clickEvent = null, ...props }) => {
+const HeaderBtn = ({ className = null, children = null, clickEvent = null, ...props }): JSX.Element => {
     const onClickEvent = () => {
         if (clickEvent === null) return;
         return clickEvent();

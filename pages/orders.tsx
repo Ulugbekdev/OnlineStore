@@ -5,7 +5,7 @@ import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { addOrders } from "../redux/reducers/orderReducer";
 import ordersStyle from '../styles/Orders.module.scss';
 
-const Orders = () => {
+const Orders = (): JSX.Element => {
     const dispatch = useAppDispatch();
     const orders = useAppSelector(state => state.ordersPage.orders);
 

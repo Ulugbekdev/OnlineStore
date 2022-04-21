@@ -7,7 +7,7 @@ import { getLocalDataUser } from '../lib/getLocalData';
 import LoginForm from '../components/Forms/LoginForm/LoginForm';
 import loginStyle from '../styles/Login.module.scss';
 
-const Login = () => {
+const Login = (): JSX.Element => {
     const [isRedirectToMain, setIsRedirectToMain] = useState(false);
     const [isRedirectToRegister, setIsRedirectToRegister] = useState(false);
     const router = useRouter();

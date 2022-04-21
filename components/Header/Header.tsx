@@ -4,7 +4,7 @@ import HeaderSearch from './HeaderSearch/HeaderSearch';
 import HeaderUserData from './HeaderUserData/HeaderUserData';
 import headerStyle from './Header.module.scss';
 
-const Header = () => {
+const Header = (): JSX.Element => {
     return (
         <header className={headerStyle.header}>
             <div className={headerStyle.header__content}>

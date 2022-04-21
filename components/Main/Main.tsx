@@ -7,7 +7,7 @@ import Header from '../Header/Header';
 import Sidebar from '../Sidebar/Sidebar';
 import mainStyle from './Main.module.scss';
 
-const Main = ({ children, ...props }) => {
+const Main = ({ children, ...props }): JSX.Element => {
     const [isChangeWidth, setIsChangeWidth] = useState(false);
     const router = useRouter();
     const dispatch = useAppDispatch();

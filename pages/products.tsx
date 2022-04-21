@@ -6,7 +6,7 @@ import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import { addProducts } from '../redux/reducers/productsReducer';
 import productsStyle from '../styles/Products.module.scss';
 
-const Products = () => {
+const Products = (): JSX.Element => {
     const dispatch = useAppDispatch();
     const products = useAppSelector(state => state.productsPage.products);
 

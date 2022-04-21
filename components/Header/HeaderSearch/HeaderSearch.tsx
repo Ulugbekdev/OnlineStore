@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import HeaderBtn from '../HeaderBtn/HeaderBtn';
 import searchStyle from './HeaderSearch.module.scss';
 
-const Search = () => {
+const Search = (): JSX.Element => {
     const searchRef = createRef<HTMLDivElement>();
 
     const clickOpenEvent = () => {

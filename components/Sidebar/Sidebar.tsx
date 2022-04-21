@@ -5,11 +5,12 @@ import sidebarStyle from './Sidebar.module.scss';
 import Link from 'next/link';
 import { createRef } from 'react';
 
-const Sidebar = ({isChangeWidth, ...props}) => {
+const Sidebar = ({isChangeWidth, ...props}): JSX.Element => {
     const sidebarRef = createRef<HTMLDivElement>();
 
     const clickEvent = () => {
-        const sidebarClasses = [...sidebarRef.current.classList];
+        const sidebarClassList = Array.from(sidebarRef.current.classList);
+        const sidebarClasses = [...sidebarClassList];
         const sidebarClassIsActive = sidebarClasses.filter(el => el === sidebarStyle.sidebar_active);
         sidebarRef.current.classList.toggle(sidebarStyle.sidebar_active);
         if (sidebarClassIsActive.length === 1) {

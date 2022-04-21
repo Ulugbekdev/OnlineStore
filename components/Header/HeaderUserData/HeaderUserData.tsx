@@ -7,7 +7,7 @@ import HeaderBtn from '../HeaderBtn/HeaderBtn';
 import userStyle from './HeaderUserData.module.scss';
 import { useEffect } from 'react';
 
-const User = () => {
+const User = (): JSX.Element => {
     const userName = useAppSelector(state => state.loginPage.userName);
     const router = useRouter();
     const dispatch = useAppDispatch();

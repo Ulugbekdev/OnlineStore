@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import HeaderBtn from '../HeaderBtn/HeaderBtn';
 import btnsStyle from './HeaderBtnsGroup.module.scss';
 
-const BtnsGroup = () => {
+const BtnsGroup = (): JSX.Element => {
     return (
         <div className={btnsStyle.btnsGroup}>
             <HeaderBtn className={[btnsStyle.btnsGroup__btn, btnsStyle.btnsGroup__btn_menu]}>

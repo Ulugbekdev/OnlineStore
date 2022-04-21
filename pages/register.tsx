@@ -5,7 +5,7 @@ import { useRouter } from 'next/router';
 import LoginForm from '../components/Forms/LoginForm/LoginForm';
 import registerStyle from '../styles/Register.module.scss';
 
-const Register = () => {
+const Register = (): JSX.Element => {
     const router = useRouter();
     const dispatch = useAppDispatch();
     const [isRedirectToMain, setIsRedirectToMain] = useState(false);

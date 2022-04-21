@@ -7,7 +7,7 @@ import { addNotes, delNotes, getNotes } from '../redux/reducers/notesReducer';
 import Main from '../components/Main/Main';
 import notesStyle from '../styles/Notes.module.scss';
 
-export default function Notes() {
+export default function Notes(): JSX.Element {
 	const [dateVal, setDateVal] = useState('');
 	const [notesVal, setNotesVal] = useState('');
 	const userId = useAppSelector(state => state.loginPage.userId);
