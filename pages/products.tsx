@@ -8,12 +8,12 @@ import productsStyle from '../styles/Products.module.scss';
 
 const Products = () => {
     const dispatch = useAppDispatch();
-    const products = useAppSelector(state => state.products.products);
+    const products = useAppSelector(state => state.productsPage.products);
 
     useEffect(() => {
         dispatch(addProducts());
     }, [])
-
+    
     const productsArray = products && products.map((el: any, index) => {
         return (
             <div key={index} className={productsStyle.product__item}>

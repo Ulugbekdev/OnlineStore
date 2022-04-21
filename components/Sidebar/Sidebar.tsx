@@ -1,4 +1,4 @@
-import { faNoteSticky, faP } from "@fortawesome/free-solid-svg-icons";
+import { faNoteSticky, faP, faCartShopping } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Burger from '../Burger/Burger';
 import sidebarStyle from './Sidebar.module.scss';
@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { createRef } from 'react';
 
 const Sidebar = ({isChangeWidth, ...props}) => {
-    const sidebarRef = createRef();
+    const sidebarRef = createRef<HTMLDivElement>();
 
     const clickEvent = () => {
         const sidebarClasses = [...sidebarRef.current.classList];
@@ -42,6 +42,16 @@ const Sidebar = ({isChangeWidth, ...props}) => {
                                 <FontAwesomeIcon icon={faP} />
                             </span>
                             Products
+                        </a>
+                    </Link>
+                </li>
+                <li>
+                    <Link href={'/orders'}>
+                        <a className={sidebarStyle.sidebar__initial}>
+                            <span className={sidebarStyle.sidebar__icon}>
+                                <FontAwesomeIcon icon={faCartShopping} />
+                            </span>
+                            Orders
                         </a>
                     </Link>
                 </li>

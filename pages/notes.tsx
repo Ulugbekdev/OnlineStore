@@ -10,10 +10,10 @@ import notesStyle from '../styles/Notes.module.scss';
 export default function Notes() {
 	const [dateVal, setDateVal] = useState('');
 	const [notesVal, setNotesVal] = useState('');
-	const userId = useAppSelector(state => state.login.userId);
-	const notes = useAppSelector(state => state.notes.notes);
+	const userId = useAppSelector(state => state.loginPage.userId);
+	const notes = useAppSelector(state => state.notesPage.notes);
 	const dispatch = useAppDispatch();
-	const errorVal = createRef();
+	const errorVal = createRef<HTMLSpanElement>();
 
 	useEffect(() => {
 		const userData = getLocalDataUser();
@@ -47,7 +47,7 @@ export default function Notes() {
 		dispatch(delNotes(newData)).then(() => dispatch(getNotes(userId)));
 	};
 
-	const arrayNotes = notes && notes.map((el, index) => {
+	const arrayNotes = notes && notes.map((el: any, index) => {
 		return (
 			<li key={index} className={notesStyle.notes__listItem}>
 				<ul

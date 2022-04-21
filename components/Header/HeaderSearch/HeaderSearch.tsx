@@ -6,7 +6,7 @@ import HeaderBtn from '../HeaderBtn/HeaderBtn';
 import searchStyle from './HeaderSearch.module.scss';
 
 const Search = () => {
-    const searchRef = createRef();
+    const searchRef = createRef<HTMLDivElement>();
 
     const clickOpenEvent = () => {
         searchRef.current.classList.add(searchStyle.search_active);

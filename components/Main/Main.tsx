@@ -11,13 +11,11 @@ const Main = ({ children, ...props }) => {
     const [isChangeWidth, setIsChangeWidth] = useState(false);
     const router = useRouter();
     const dispatch = useAppDispatch();
-    const mainSidebarRef = createRef();
+    const mainSidebarRef = createRef<HTMLDivElement>();
     
     useEffect(() => {
         const userData = getLocalDataUser();
         if (userData.id === null) router.replace('/login');
-        // console.log("hello");
-        // debugger
         dispatch(getLoginAc({
             userId: userData.id,
             userName: userData.login

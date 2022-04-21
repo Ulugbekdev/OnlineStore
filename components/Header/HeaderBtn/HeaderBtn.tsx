@@ -6,6 +6,7 @@ const HeaderBtn = ({ className = null, children = null, clickEvent = null, ...pr
         if (clickEvent === null) return;
         return clickEvent();
     };
+    
     return (
         <>
             <button className={cs(headerStyle.header__btn, className)} onClick={() => onClickEvent()}>

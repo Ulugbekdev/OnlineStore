@@ -2,18 +2,18 @@ import {notes} from '../requests/requests';
 
 const ADD_NOTES = 'ADD-NOTES';
 
-type InitialState = {
-    notes: Array<object> | null
-};
-
-type AddNotesAcPayload = {
+type InitialNotes = {
     text: string
     date: string
 }
 
+type InitialState = {
+    notes: Array<InitialNotes> | null
+};
+
 type AddNotesAc = {
     type: typeof ADD_NOTES
-    notes: Array<AddNotesAcPayload>
+    notes: Array<InitialNotes>
 }
 
 type GetNotes = string | null;

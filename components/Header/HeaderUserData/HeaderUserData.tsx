@@ -8,7 +8,7 @@ import userStyle from './HeaderUserData.module.scss';
 import { useEffect } from 'react';
 
 const User = () => {
-    const userName = useAppSelector(state => state.login.userName);
+    const userName = useAppSelector(state => state.loginPage.userName);
     const router = useRouter();
     const dispatch = useAppDispatch();
 

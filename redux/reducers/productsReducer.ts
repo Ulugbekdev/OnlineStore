@@ -2,10 +2,6 @@ import {products} from '../requests/requests';
 
 const ADD_PRODUCTS = 'ADD-PRODUCTS';
 
-type InitialState = {
-    products: Array<object> | null
-};
-
 type InitialProduct = {
     imgSrc: string | null
     title: string | null
@@ -13,6 +9,10 @@ type InitialProduct = {
     amount: string | null
     status: boolean
 }
+
+type InitialState = {
+    products: Array<InitialProduct> | null
+};
 
 type AddProductsAc = {
     type: typeof ADD_PRODUCTS
