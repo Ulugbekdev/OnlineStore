@@ -27,7 +27,9 @@
 
     &__content {
         padding: 15px;
+        height: 200px;
         background: $white;
+        overflow-y: scroll;
         border-radius: 0 0 10px 10px;
         border: 1px solid $black;
     }
