@@ -1,0 +1,58 @@
+@import "./colorVariables";
+
+.product {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    &__item {
+        width: 100%;
+        padding: 15px;
+        max-width: 25%;
+    }
+
+    &__img {
+        span {
+            width: 100%!important;
+            display: block!important;
+        }
+
+        img {
+            object-fit: cover;
+            background: $gray;
+            object-position: center;
+            border-radius: 10px 10px 0 0;
+        }
+    }
+
+    &__content {
+        padding: 15px;
+        background: $white;
+        border-radius: 0 0 10px 10px;
+        border: 1px solid $black;
+    }
+
+    &__title {
+        color: $black;
+        font-size: 18px;
+        font-weight: 700;
+        margin-bottom: 8px;
+    }
+
+    &__price {
+        color: $green;
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    &__amount {
+        color: $black;
+        font-size: 16px;
+        margin-bottom: 8px;
+    }
+
+    &__status {
+        color: $orange;
+        font-size: 14px;
+    }
+}

@@ -33,3 +33,9 @@ export const notes = {
         });
     }
 }
+
+export const products = {
+    getProducts(): any {
+        return axios.get('http://localhost:3000/api/products');
+    }
+}

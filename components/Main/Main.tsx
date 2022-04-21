@@ -12,10 +12,12 @@ const Main = ({ children, ...props }) => {
     const router = useRouter();
     const dispatch = useAppDispatch();
     const mainSidebarRef = createRef();
-
+    
     useEffect(() => {
         const userData = getLocalDataUser();
-        if (!userData.id) router.replace('/login');
+        if (userData.id === null) router.replace('/login');
+        // console.log("hello");
+        // debugger
         dispatch(getLoginAc({
             userId: userData.id,
             userName: userData.login

@@ -1,4 +1,4 @@
-import { faNoteSticky } from "@fortawesome/free-solid-svg-icons";
+import { faNoteSticky, faP } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Burger from '../Burger/Burger';
 import sidebarStyle from './Sidebar.module.scss';
@@ -32,6 +32,16 @@ const Sidebar = ({isChangeWidth, ...props}) => {
                                 <FontAwesomeIcon icon={faNoteSticky} />
                             </span>
                             Notes
+                        </a>
+                    </Link>
+                </li>
+                <li>
+                    <Link href={'/products'}>
+                        <a className={sidebarStyle.sidebar__initial}>
+                            <span className={sidebarStyle.sidebar__icon}>
+                                <FontAwesomeIcon icon={faP} />
+                            </span>
+                            Products
                         </a>
                     </Link>
                 </li>

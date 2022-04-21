@@ -12,7 +12,7 @@ const Login = () => {
     const [isRedirectToRegister, setIsRedirectToRegister] = useState(false);
     const router = useRouter();
     const dispatch = useAppDispatch();
-
+    
     useEffect(() => {
         const userData = getLocalDataUser();
         if (userData.login) setIsRedirectToMain(true);

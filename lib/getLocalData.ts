@@ -1,6 +1,6 @@
 type GetLocalDataUser = {
-    login: string
-    id: string
+    login: string | null
+    id: string | null
 }
 
 export const getLocalDataUser = (): GetLocalDataUser => {
