@@ -8,7 +8,17 @@
 
         & + & {
             margin-top: 20px;
+            border-top: 1px solid $green;
         }
+    }
+
+    &__headingList {
+        padding: 20px;
+        display: flex;
+        list-style: none;
+        align-items: center;
+        border-bottom: 2px solid $red;
+        justify-content: space-around;
     }
 
     &__innerList {
@@ -16,16 +26,26 @@
         display: flex;
         list-style: none;
         align-items: center;
-        border: 2px solid $gray;
         justify-content: space-around;
     }
 
-    &__innerItem {
-        width: 25%;
+    &__innerItem, &__headingItem {
         padding: 15px;
+        text-align: center;
+        width: calc(100% / 7);
 
         &:not(:last-child) {
             border-right: 1px solid $gray;
         }
+    }
+
+    &__innerItem {
+        max-height: 51px;
+        overflow-y: scroll;
+    }
+
+    &__headingItem {
+        font-size: 20px;
+        font-weight: 700;
     }
 }

@@ -63,8 +63,8 @@ export const getlogin = (data: LoginFormData) => async dispatch => {
     const res = await login.getLogin(data);
     return new Promise((resolve, reject) => {
         if (res.data.statusCode === 200) {
-            const userId = res.data.userData.id;
-            const userName = res.data.userData.login;
+            const userId = res.data.body.userId;
+            const userName = res.data.body.userName;
             localStorage.setItem('userId', userId);
             localStorage.setItem('userName', userName);
             return resolve(dispatch(getLoginAc({
@@ -78,12 +78,17 @@ export const getlogin = (data: LoginFormData) => async dispatch => {
 
 export const register = (data: LoginFormData) => async dispatch => {
     const res = await login.register(data);
-    const userId = res.data.userData.id;
-    const userName = res.data.userData.login;
-    localStorage.setItem('userId', userId);
-    localStorage.setItem('userName', userName);
-    dispatch(getLoginAc({
-        userId: userId,
-        userName: userName
-    }));
+    return new Promise((resolve, reject) => {
+        if (res.data.statusCode === 200) {
+            const userId = res.data.body.userId;
+            const userName = res.data.body.userName;
+            localStorage.setItem('userId', userId);
+            localStorage.setItem('userName', userName);
+            return resolve(dispatch(getLoginAc({
+                userId: userId,
+                userName: userName
+            })));
+        }
+        return reject(res.data.message);
+    })
 }

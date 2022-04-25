@@ -1,14 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
+import type { Product } from "../../lib/types";
 import sqlite3 from "sqlite3";
 let db = new sqlite3.Database("./base/admin.db");
-
-type Product = {
-    id: number
-    name: string 
-    price: string
-    status: string
-    imgSrc: string
-}
 
 export default function handler (req: NextApiRequest, res: NextApiResponse) {
     db.all("SELECT * FROM products", (err, row) => {

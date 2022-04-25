@@ -9,10 +9,18 @@ const Register = (): JSX.Element => {
     const router = useRouter();
     const dispatch = useAppDispatch();
     const [isRedirectToMain, setIsRedirectToMain] = useState(false);
-    
+
 
     const submitEvent = (data, formEvent) => {
-        dispatch(register(data)).then(() => setIsRedirectToMain(true));
+        const errorSpan = formEvent.target.children[2];
+        errorSpan.innerHTML = '';
+
+        dispatch(register(data)).then(
+            () => setIsRedirectToMain(true),
+            error => {
+                errorSpan.innerHTML = error;
+            }
+        );
     }
 
     if (isRedirectToMain) router.replace('/');
@@ -20,7 +28,7 @@ const Register = (): JSX.Element => {
     return (
         <div className={registerStyle.register}>
             <h1 className={registerStyle.register__heading}>Registration</h1>
-            <LoginForm submitEvent={submitEvent}/>
+            <LoginForm submitEvent={submitEvent} />
         </div>
     )
 };
