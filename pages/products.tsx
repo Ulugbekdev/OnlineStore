@@ -21,7 +21,7 @@ const Products = (): JSX.Element => {
                     <Image width={'100vw'} height={200} src={el.imgSrc} alt={el.title} />
                 </div>
                 <div className={productsStyle.product__content}>
-                    <p className={productsStyle.product__title}>{el.title}</p>
+                    <p className={productsStyle.product__name}>{el.name}</p>
                     <p className={productsStyle.product__price}>Price:{el.price}</p>
                     <p className={productsStyle.product__amount}>Amount:{el.amount}</p>
                     <p className={productsStyle.product__status}>Status:{el.status}</p>

@@ -7,7 +7,8 @@ type InitialProduct = {
     title: string | null
     price: string | null
     amount: string | null
-    status: boolean
+    id: string | null
+    status: boolean,
 }
 
 type InitialState = {
