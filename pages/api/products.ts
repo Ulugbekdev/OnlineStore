@@ -13,7 +13,7 @@ type Product = {
 export default function handler (req: NextApiRequest, res: NextApiResponse) {
     db.all("SELECT * FROM products", (err, row) => {
         if (err) return res.json({ message: err, statusCode: 500 });
-        const arrayProducts: Array<Product> = row.map((el) => {
+        const arrayProducts: Array<Product> = row.map((el):Product => {
             return {
                 id: el.id,
                 name: el.name,
