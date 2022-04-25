@@ -16,20 +16,16 @@
         display: flex;
         list-style: none;
         align-items: center;
-        border-radius: 20px;
         border: 2px solid $gray;
         justify-content: space-around;
     }
 
-    &__title {
-        width: 100%;
-        max-width: 80%;
-        font-size: 36px;
-    }
+    &__innerItem {
+        width: 25%;
+        padding: 15px;
 
-    &__customer {
-        width: 100%;
-        max-width: 10%;
-        font-size: 24px;
+        &:not(:last-child) {
+            border-right: 1px solid $gray;
+        }
     }
 }

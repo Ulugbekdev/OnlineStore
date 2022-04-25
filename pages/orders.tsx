@@ -17,8 +17,9 @@ const Orders = (): JSX.Element => {
         return (
             <li key={index} className={ordersStyle.orders__item}>
                 <ul className={ordersStyle.orders__innerList}>
-                    <li className={ordersStyle.orders__title}>{el.title}</li>
-                    <li className={ordersStyle.orders__customer}>{el.customer}</li>
+                    <li className={ordersStyle.orders__innerItem}>{el.date}</li>
+                    <li className={ordersStyle.orders__innerItem}>{el.status}</li>
+                    <li className={ordersStyle.orders__innerItem}>{el.customerId}</li>
                 </ul>
             </li>
         )
