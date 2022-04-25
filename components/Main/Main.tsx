@@ -12,10 +12,10 @@ const Main = ({ children, ...props }): JSX.Element => {
     const router = useRouter();
     const dispatch = useAppDispatch();
     const mainSidebarRef = createRef<HTMLDivElement>();
-    
+
     useEffect(() => {
         const userData = getLocalDataUser();
-        if (userData.id === null) router.replace('/login');
+        if (userData.id === null) router.replace('/admin/login');
         dispatch(getLoginAc({
             userId: userData.id,
             userName: userData.login

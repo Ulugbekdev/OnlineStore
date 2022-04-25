@@ -1,9 +1,9 @@
 import { useState } from 'react';
-import { useAppDispatch } from '../redux/hooks';
-import { register } from '../redux/reducers/loginReducer';
+import { useAppDispatch } from '../../redux/hooks';
+import { register } from '../../redux/reducers/loginReducer';
 import { useRouter } from 'next/router';
-import LoginForm from '../components/Forms/LoginForm/LoginForm';
-import registerStyle from '../styles/Register.module.scss';
+import LoginForm from '../../components/Forms/LoginForm/LoginForm';
+import registerStyle from '../../styles/Register.module.scss';
 
 const Register = (): JSX.Element => {
     const router = useRouter();
@@ -23,7 +23,7 @@ const Register = (): JSX.Element => {
         );
     }
 
-    if (isRedirectToMain) router.replace('/');
+    if (isRedirectToMain) router.replace('/admin');
 
     return (
         <div className={registerStyle.register}>

@@ -27,7 +27,7 @@ const Sidebar = ({isChangeWidth, ...props}): JSX.Element => {
             <ul className={sidebarStyle.sidebar__nav}>
                 <li className={sidebarStyle.sidebar__heading}>Menu</li>
                 <li>
-                    <Link href={'/notes'}>
+                    <Link href={'/admin/notes'}>
                         <a className={sidebarStyle.sidebar__initial}>
                             <span className={sidebarStyle.sidebar__icon}>
                                 <FontAwesomeIcon icon={faNoteSticky} />
@@ -37,7 +37,7 @@ const Sidebar = ({isChangeWidth, ...props}): JSX.Element => {
                     </Link>
                 </li>
                 <li>
-                    <Link href={'/products'}>
+                    <Link href={'/admin/products'}>
                         <a className={sidebarStyle.sidebar__initial}>
                             <span className={sidebarStyle.sidebar__icon}>
                                 <FontAwesomeIcon icon={faP} />
@@ -47,7 +47,7 @@ const Sidebar = ({isChangeWidth, ...props}): JSX.Element => {
                     </Link>
                 </li>
                 <li>
-                    <Link href={'/orders'}>
+                    <Link href={'/admin/orders'}>
                         <a className={sidebarStyle.sidebar__initial}>
                             <span className={sidebarStyle.sidebar__icon}>
                                 <FontAwesomeIcon icon={faCartShopping} />

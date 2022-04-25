@@ -1,9 +1,9 @@
 import Head from "next/head";
 import { useEffect } from "react";
-import Main from "../components/Main/Main";
-import { useAppDispatch, useAppSelector } from "../redux/hooks";
-import { addOrders } from "../redux/reducers/orderReducer";
-import ordersStyle from '../styles/Orders.module.scss';
+import Main from "../../components/Main/Main";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import { addOrders } from "../../redux/reducers/orderReducer";
+import ordersStyle from '../../styles/Orders.module.scss';
 
 const Orders = (): JSX.Element => {
     const dispatch = useAppDispatch();

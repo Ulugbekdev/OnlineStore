@@ -1,10 +1,10 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import { useEffect } from 'react';
-import Main from '../components/Main/Main';
-import { useAppDispatch, useAppSelector } from '../redux/hooks';
-import { addProducts } from '../redux/reducers/productsReducer';
-import productsStyle from '../styles/Products.module.scss';
+import Main from '../../components/Main/Main';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { addProducts } from '../../redux/reducers/productsReducer';
+import productsStyle from '../../styles/Products.module.scss';
 
 const Products = (): JSX.Element => {
     const dispatch = useAppDispatch();

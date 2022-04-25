@@ -1,6 +1,5 @@
 import Head from 'next/head';
-import { useEffect } from 'react';
-import Main from '../components/Main/Main';
+import Main from '../../components/Main/Main';
 
 const Home = (): JSX.Element => {
 	return (

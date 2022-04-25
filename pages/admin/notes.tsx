@@ -1,11 +1,11 @@
 import Head from 'next/head';
 import { createRef, useEffect, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../redux/hooks';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import cs from 'classnames';
-import { getLocalDataUser } from '../lib/getLocalData';
-import { addNotes, delNotes, getNotes } from '../redux/reducers/notesReducer';
-import Main from '../components/Main/Main';
-import notesStyle from '../styles/Notes.module.scss';
+import { getLocalDataUser } from '../../lib/getLocalData';
+import { addNotes, delNotes, getNotes } from '../../redux/reducers/notesReducer';
+import Main from '../../components/Main/Main';
+import notesStyle from '../../styles/Notes.module.scss';
 
 export default function Notes(): JSX.Element {
 	const [dateVal, setDateVal] = useState('');

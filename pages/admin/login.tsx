@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import { useAppDispatch } from '../redux/hooks';
-import { getlogin } from '../redux/reducers/loginReducer';
+import { useAppDispatch } from '../../redux/hooks';
+import { getlogin } from '../../redux/reducers/loginReducer';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
-import { getLocalDataUser } from '../lib/getLocalData';
-import LoginForm from '../components/Forms/LoginForm/LoginForm';
-import loginStyle from '../styles/Login.module.scss';
+import { getLocalDataUser } from '../../lib/getLocalData';
+import LoginForm from '../../components/Forms/LoginForm/LoginForm';
+import loginStyle from '../../styles/Login.module.scss';
 
 const Login = (): JSX.Element => {
     const [isRedirectToMain, setIsRedirectToMain] = useState(false);
@@ -33,9 +33,9 @@ const Login = (): JSX.Element => {
         setIsRedirectToRegister(true);
     }
 
-    if (isRedirectToMain) router.replace('/');
+    if (isRedirectToMain) router.replace('/admin');
 
-    if (isRedirectToRegister) router.replace('/register');
+    if (isRedirectToRegister) router.replace('/admin/register');
 
     return (
         <>

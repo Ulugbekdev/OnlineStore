@@ -13,7 +13,7 @@ const User = (): JSX.Element => {
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-        if (!userName) router.replace('/login');
+        if (!userName) router.replace('/admin/login');
     }, [userName])
 
     const logOutEvent = () => {
