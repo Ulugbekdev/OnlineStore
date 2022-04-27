@@ -3,7 +3,7 @@ import { login } from './../redux/requests/requests';
 import { getLoginAc } from '../lib/actions';
 
 export const loginThunk = (data: LoginFormData, islogin: boolean, isAdmin: boolean) => async dispatch => {
-    const res =islogin ? await login.getLogin(data) : await login.register(data);
+    const res = islogin ? await login.getLogin(data) : await login.register(data);
     const userIdLC = isAdmin ? 'userIdAdmin' : 'userId';
     const userNameLC = isAdmin ? 'userNameAdmin' : 'userName';
 

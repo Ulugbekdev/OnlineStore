@@ -1,34 +1,33 @@
 import { useState } from 'react';
 import { useAppDispatch } from '../../redux/hooks';
 import { useRouter } from 'next/router';
-import AdminLoginForm from '../../components/Forms/LoginForm/LoginForm';
-import registerStyle from '../../styles/AdminRegister.module.scss';
 import { loginThunk } from '../../lib/thunks';
+import { signUpEvent } from '../../lib/events';
+import LoginForm from '../../components/Forms/LoginForm/LoginForm';
+import registerStyle from '../../styles/AdminRegister.module.scss';
 
-const Register = (): JSX.Element => {
+const Register = ({isAdmin, ...props}): JSX.Element => {
     const router = useRouter();
     const dispatch = useAppDispatch();
     const [isRedirectToMain, setIsRedirectToMain] = useState(false);
 
-
     const submitEvent = (data, formEvent) => {
-        const errorSpan = formEvent.target.children[2];
-        errorSpan.innerHTML = '';
+        const errorMessage = signUpEvent(formEvent);
 
-        dispatch(loginThunk(data, false, true)).then(
+        dispatch(loginThunk(data, false, isAdmin ? true : false)).then(
             () => setIsRedirectToMain(true),
             error => {
-                errorSpan.innerHTML = error;
+                errorMessage.innerHTML = error;
             }
         );
     }
 
-    if (isRedirectToMain) router.replace('/admin');
+    if (isRedirectToMain) router.replace(isAdmin ? '/admin' : '/');
 
     return (
         <div className={registerStyle.register}>
             <h1 className={registerStyle.register__heading}>Registration</h1>
-            <AdminLoginForm submitEvent={submitEvent} />
+            <LoginForm submitEvent={submitEvent} />
         </div>
     )
 };

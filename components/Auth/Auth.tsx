@@ -17,7 +17,7 @@ const Auth = ({isAdmin, submitEvent, ...props}): JSX.Element => {
 
     if (isRedirectToMain) router.replace(isAdmin ? '/admin' : '/');
 
-    if (isRedirectToRegister) router.replace(isAdmin ? '/admin/register' : '/register');
+    if (isRedirectToRegister) router.replace(isAdmin ? '/admin/sign-up' : '/sign-up');
 
     return (
         <>
