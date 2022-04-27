@@ -1,19 +1,33 @@
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
+import { useAppDispatch } from '../../redux/hooks';
 import { getLocalDataUser } from "../../lib/localStorage";
+import { signInEvent } from "../../lib/events";
+import { loginThunk } from "../../lib/thunks";
 import LoginForm from "../Forms/LoginForm/LoginForm";
-import loginStyle from './Auth.module.scss';
+import loginStyle from './Login.module.scss';
 
-const Auth = ({isAdmin, submitEvent, ...props}): JSX.Element => {
+const Login = ({isAdmin, ...props}): JSX.Element => {
+    const router = useRouter();
+    const dispatch = useAppDispatch();
     const [isRedirectToMain, setIsRedirectToMain] = useState(false);
     const [isRedirectToRegister, setIsRedirectToRegister] = useState(false);
-    const router = useRouter();
 
     useEffect(() => {
         const userData = getLocalDataUser(isAdmin ? true : false);
         if (userData.login) setIsRedirectToMain(true);
     }, [])
+
+    const submitEvent = (data, formEvent) => {
+        const errorMessage = signInEvent(formEvent);
+
+        dispatch(loginThunk(data, true, isAdmin ? true : false)).then(() => {
+            return setIsRedirectToMain(true);
+        }, error => {
+            errorMessage.innerHTML = error;
+        });
+    };
 
     if (isRedirectToMain) router.replace(isAdmin ? '/admin' : '/');
 
@@ -33,4 +47,4 @@ const Auth = ({isAdmin, submitEvent, ...props}): JSX.Element => {
     )
 };
 
-export default Auth;
+export default Login;

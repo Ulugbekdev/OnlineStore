@@ -14,7 +14,7 @@ const AdminHeaderUser = (): JSX.Element => {
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-        if (!userName) router.replace('/admin/login');
+        if (!userName) router.replace('/admin/sign-in');
     }, [userName])
 
     const logOutEvent = () => {

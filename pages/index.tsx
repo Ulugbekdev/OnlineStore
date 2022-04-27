@@ -12,7 +12,7 @@ const Home = (): JSX.Element => {
 
     useEffect(() => {
         const userData = getLocalDataUser(false);
-        if (!userData.id) router.replace('/login');
+        if (!userData.id) router.replace('/sign-in');
         dispatch(getLoginAc({
             userId: userData.id,
             userName: userData.login

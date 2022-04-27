@@ -14,7 +14,7 @@ const Header = (): JSX.Element => {
     const userName = useAppSelector(state => state.loginPage.userName);
 
     useEffect(() => {
-        if (!userName) router.replace('/login');
+        if (!userName) router.replace('/sign-in');
     }, [userName])
 
     const logOutEvent = () => {

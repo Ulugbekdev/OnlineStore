@@ -15,7 +15,7 @@ const AdminMain = ({ children, ...props }): JSX.Element => {
 
     useEffect(() => {
         const userData = getLocalDataUser(true);
-        if (userData.id === null) router.replace('/admin/login');
+        if (userData.id === null) router.replace('/admin/sign-in');
         dispatch(getLoginAc({
             userId: userData.id,
             userName: userData.login
