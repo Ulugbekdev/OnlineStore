@@ -4,7 +4,7 @@ import sqlite3 from 'sqlite3';
 let db = new sqlite3.Database('./base/admin.db');
 
 export default function handler (req: NextApiRequest, res: NextApiResponse) {
-    db.all('SELECT * FROM users WHERE type_user = "admin"', (err, rows) => {
+    db.all(`SELECT * FROM users WHERE type_user = "${req.body.typeUser}"`, (err, rows) => {
         if (err) {
             return res.json({ message: 'error status code 500', statusCode: 500 })
         }
