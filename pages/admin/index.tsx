@@ -1,11 +1,11 @@
 import Head from 'next/head';
 import Main from '../../components/AdminMain/AdminMain';
 
-const Home = (): JSX.Element => {
+const Admin = (): JSX.Element => {
 	return (
 		<>
 			<Head>
-				<title>Home</title>
+				<title>Admin</title>
 			</Head>
 			<Main>
 				<h1>
@@ -16,4 +16,4 @@ const Home = (): JSX.Element => {
 	)
 };
 
-export default Home;
+export default Admin;

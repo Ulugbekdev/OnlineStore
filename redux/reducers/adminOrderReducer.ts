@@ -1,4 +1,4 @@
-import {orders} from '../requests/adminRequests';
+import {orders} from '../requests/requests';
 
 const ADD_ORDERS = 'ADD-ORDERS';
 

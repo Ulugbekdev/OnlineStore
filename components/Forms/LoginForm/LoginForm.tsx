@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import adminFormStyle from './AdminLoginForm.module.scss';
+import adminFormStyle from './LoginForm.module.scss';
 
-const AdminLoginForm = ({submitEvent, ...props}): JSX.Element => {
+const LoginForm = ({submitEvent, ...props}): JSX.Element => {
     const [loginVal, setLoginVal] = useState('');
     const [passwordVal, setPasswordVal] = useState('');
 
@@ -43,4 +43,4 @@ const AdminLoginForm = ({submitEvent, ...props}): JSX.Element => {
     )
 };
 
-export default AdminLoginForm;
+export default LoginForm;

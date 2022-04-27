@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
-import type { User } from '../../lib/adminTypes';
+import type { User } from '../../lib/types';
 import sqlite3 from 'sqlite3';
 let db = new sqlite3.Database('./base/admin.db');
 

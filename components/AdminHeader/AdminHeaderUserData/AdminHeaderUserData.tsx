@@ -6,6 +6,7 @@ import { logOutAc } from "../../../redux/reducers/adminLoginReducer";
 import AdminHeaderBtn from '../AdminHeaderBtn/AdminHeaderBtn';
 import adminHeaderUserStyle from './AdminHeaderUserData.module.scss';
 import { useEffect } from 'react';
+import { removeLocalDataUser } from '../../../lib/localStorage';
 
 const AdminHeaderUser = (): JSX.Element => {
     const userName = useAppSelector(state => state.adminLoginPage.userName);
@@ -17,8 +18,7 @@ const AdminHeaderUser = (): JSX.Element => {
     }, [userName])
 
     const logOutEvent = () => {
-        localStorage.removeItem("userName");
-        localStorage.removeItem("userId");
+        removeLocalDataUser(true);
         dispatch(logOutAc());
     }
 

@@ -2,7 +2,7 @@ import Head from 'next/head';
 import { createRef, useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import cs from 'classnames';
-import { getLocalDataUser } from '../../lib/adminGetLocalData';
+import { getLocalDataUser } from '../../lib/localStorage';
 import { addNotes, delNotes, getNotes } from '../../redux/reducers/adminNotesReducer';
 import AdminMain from '../../components/AdminMain/AdminMain';
 import notesStyle from '../../styles/AdminNotes.module.scss';
@@ -16,7 +16,7 @@ export default function Notes(): JSX.Element {
 	const errorVal = createRef<HTMLSpanElement>();
 
 	useEffect(() => {
-		const userData = getLocalDataUser();
+		const userData = getLocalDataUser(true);
 		dispatch(getNotes(userData.id));
 	}, []);
 

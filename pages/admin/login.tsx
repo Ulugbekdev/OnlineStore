@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useAppDispatch } from '../../redux/hooks';
-import { getlogin } from '../../redux/reducers/adminLoginReducer';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
-import { getLocalDataUser } from '../../lib/adminGetLocalData';
-import AdminLoginForm from '../../components/Forms/AdminLoginForm/AdminLoginForm';
+import { getLocalDataUser } from '../../lib/localStorage';
+import AdminLoginForm from '../../components/Forms/LoginForm/LoginForm';
+import { loginThunk } from '../../lib/thunks';
 import loginStyle from '../../styles/AdminLogin.module.scss';
 
 const Login = (): JSX.Element => {
@@ -14,7 +14,7 @@ const Login = (): JSX.Element => {
     const dispatch = useAppDispatch();
     
     useEffect(() => {
-        const userData = getLocalDataUser();
+        const userData = getLocalDataUser(true);
         if (userData.login) setIsRedirectToMain(true);
     }, [])
 
@@ -22,16 +22,12 @@ const Login = (): JSX.Element => {
         const errorSpan = formEvent.target.children[2];
         errorSpan.innerHTML = '';
         
-        dispatch(getlogin(data)).then(() => {
+        dispatch(loginThunk(data, true, true)).then(() => {
             return setIsRedirectToMain(true);
         }, error => {
             errorSpan.innerHTML = error;
         });
     };
-
-    const redirectEvent = () => {
-        setIsRedirectToRegister(true);
-    }
 
     if (isRedirectToMain) router.replace('/admin');
 
@@ -45,7 +41,7 @@ const Login = (): JSX.Element => {
             <div className={loginStyle.login}>
                 <h1 className={loginStyle.login__heading}>Login</h1>
                 <AdminLoginForm submitEvent={submitEvent}/>
-                <button className={loginStyle.login__btn} onClick={() => redirectEvent()}>Register</button>
+                <button className={loginStyle.login__btn} onClick={() => setIsRedirectToRegister(true)}>Register</button>
             </div>
         </>
     )

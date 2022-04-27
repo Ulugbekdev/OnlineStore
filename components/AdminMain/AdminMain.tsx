@@ -2,8 +2,8 @@ import { createRef, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useAppDispatch } from '../../redux/hooks';
 import { getLoginAc } from '../../redux/reducers/adminLoginReducer';
-import { getLocalDataUser } from '../../lib/adminGetLocalData';
-import AdminHeader from '../Header/AdminHeader';
+import { getLocalDataUser } from '../../lib/localStorage';
+import AdminHeader from '../AdminHeader/AdminHeader';
 import AdminSidebar from '../AdminSidebar/AdminSidebar';
 import adminMainStyle from './AdminMain.module.scss';
 
@@ -14,7 +14,7 @@ const AdminMain = ({ children, ...props }): JSX.Element => {
     const mainSidebarRef = createRef<HTMLDivElement>();
 
     useEffect(() => {
-        const userData = getLocalDataUser();
+        const userData = getLocalDataUser(true);
         if (userData.id === null) router.replace('/admin/login');
         dispatch(getLoginAc({
             userId: userData.id,

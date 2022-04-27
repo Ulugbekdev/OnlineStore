@@ -1,4 +1,4 @@
-import {products} from '../requests/adminRequests';
+import {products} from '../requests/requests';
 
 const ADD_PRODUCTS = 'ADD-PRODUCTS';
 

@@ -7,7 +7,7 @@ let initialState: LoginInitialState = {
     userId: null
 };
 
-export default function AdminLoginReducer(state = initialState, action): LoginInitialState {
+export default function loginReducer (state = initialState, action): LoginInitialState {
     switch (action.type) {
         case GET_LOGIN:
             return {
