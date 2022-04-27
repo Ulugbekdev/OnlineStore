@@ -1,4 +1,4 @@
-import { login } from '../requests/requests';
+import { login } from '../requests/adminRequests';
 
 const GET_LOGIN = 'GET-LOGIN';
 const LOG_OUT = 'LOG-OUT';

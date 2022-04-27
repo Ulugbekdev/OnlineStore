@@ -1,6 +1,6 @@
 import { faSortAmountAsc } from "@fortawesome/free-solid-svg-icons";
 import type { NextApiRequest, NextApiResponse } from "next";
-import type { Order } from "../../lib/types";
+import type { Order } from "../../lib/adminTypes";
 import sqlite3 from "sqlite3";
 let db = new sqlite3.Database("./base/admin.db");
 

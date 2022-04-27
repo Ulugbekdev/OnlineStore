@@ -1,4 +1,4 @@
-import {notes} from '../requests/requests';
+import {notes} from '../requests/adminRequests';
 
 const ADD_NOTES = 'ADD-NOTES';
 

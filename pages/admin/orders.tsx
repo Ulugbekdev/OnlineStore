@@ -1,13 +1,13 @@
 import Head from "next/head";
 import { useEffect } from "react";
-import Main from "../../components/Main/Main";
+import AdminMain from "../../components/AdminMain/AdminMain";
 import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { addOrders } from "../../redux/reducers/orderReducer";
-import ordersStyle from '../../styles/Orders.module.scss';
+import { addOrders } from "../../redux/reducers/adminOrderReducer";
+import ordersStyle from '../../styles/AdminOrders.module.scss';
 
 const Orders = (): JSX.Element => {
     const dispatch = useAppDispatch();
-    const orders = useAppSelector(state => state.ordersPage.orders);
+    const orders = useAppSelector(state => state.adminOrdersPage.orders);
 
     useEffect(() => {
         dispatch(addOrders());
@@ -34,7 +34,7 @@ const Orders = (): JSX.Element => {
             <Head>
                 <title>Orders</title>
             </Head>
-            <Main>
+            <AdminMain>
                 <ul className={ordersStyle.orders}>
                     <li>
                         <ul className={ordersStyle.orders__headingList}>
@@ -49,7 +49,7 @@ const Orders = (): JSX.Element => {
                     </li>
                     {ordersArray}
                 </ul>
-            </Main>
+            </AdminMain>
         </>
     )
 };

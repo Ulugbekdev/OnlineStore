@@ -1,14 +1,14 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import { useEffect } from 'react';
-import Main from '../../components/Main/Main';
+import AdminMain from '../../components/AdminMain/AdminMain';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { addProducts } from '../../redux/reducers/productsReducer';
-import productsStyle from '../../styles/Products.module.scss';
+import { addProducts } from '../../redux/reducers/adminProductsReducer';
+import productsStyle from '../../styles/AdminProducts.module.scss';
 
 const Products = (): JSX.Element => {
     const dispatch = useAppDispatch();
-    const products = useAppSelector(state => state.productsPage.products);
+    const products = useAppSelector(state => state.adminProductsPage.products);
 
     useEffect(() => {
         dispatch(addProducts());
@@ -35,11 +35,11 @@ const Products = (): JSX.Element => {
             <Head>
                 <title>Products</title>
             </Head>
-            <Main>
+            <AdminMain>
                 <div className={productsStyle.product}>
                     {productsArray}
                 </div>
-            </Main>
+            </AdminMain>
         </>
     )
 };

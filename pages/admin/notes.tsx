@@ -2,16 +2,16 @@ import Head from 'next/head';
 import { createRef, useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import cs from 'classnames';
-import { getLocalDataUser } from '../../lib/getLocalData';
-import { addNotes, delNotes, getNotes } from '../../redux/reducers/notesReducer';
-import Main from '../../components/Main/Main';
-import notesStyle from '../../styles/Notes.module.scss';
+import { getLocalDataUser } from '../../lib/adminGetLocalData';
+import { addNotes, delNotes, getNotes } from '../../redux/reducers/adminNotesReducer';
+import AdminMain from '../../components/AdminMain/AdminMain';
+import notesStyle from '../../styles/AdminNotes.module.scss';
 
 export default function Notes(): JSX.Element {
 	const [dateVal, setDateVal] = useState('');
 	const [notesVal, setNotesVal] = useState('');
-	const userId = useAppSelector(state => state.loginPage.userId);
-	const notes = useAppSelector(state => state.notesPage.notes);
+	const userId = useAppSelector(state => state.adminLoginPage.userId);
+	const notes = useAppSelector(state => state.adminNotesPage.notes);
 	const dispatch = useAppDispatch();
 	const errorVal = createRef<HTMLSpanElement>();
 
@@ -70,7 +70,7 @@ export default function Notes(): JSX.Element {
 			<Head>
 				<title>Notes</title>
 			</Head>
-			<Main>
+			<AdminMain>
 				<div className={notesStyle.notes}>
 					<form
 						className={notesStyle.notes__form}
@@ -93,7 +93,7 @@ export default function Notes(): JSX.Element {
 					</form>
 					<ul className={notesStyle.notes__list}>{arrayNotes}</ul>
 				</div>
-			</Main>
+			</AdminMain>
 		</>
 	);
 }

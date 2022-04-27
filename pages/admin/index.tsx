@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Main from '../../components/Main/Main';
+import Main from '../../components/AdminMain/AdminMain';
 
 const Home = (): JSX.Element => {
 	return (

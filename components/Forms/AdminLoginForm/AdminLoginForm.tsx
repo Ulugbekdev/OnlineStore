@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import formStyle from './LoginForm.module.scss';
+import adminFormStyle from './AdminLoginForm.module.scss';
 
-const LoginForm = ({submitEvent, ...props}): JSX.Element => {
+const AdminLoginForm = ({submitEvent, ...props}): JSX.Element => {
     const [loginVal, setLoginVal] = useState('');
     const [passwordVal, setPasswordVal] = useState('');
 
@@ -23,24 +23,24 @@ const LoginForm = ({submitEvent, ...props}): JSX.Element => {
 
     return (
         <div>
-            <form className={formStyle.loginForm} onSubmit={e => onSubmitEvent(e)}>
+            <form className={adminFormStyle.loginForm} onSubmit={e => onSubmitEvent(e)}>
                 <input 
                     type='text'
                     name='login'
-                    className={formStyle.loginForm__input}
+                    className={adminFormStyle.loginForm__input}
                     placeholder={'Login...'}
                     onChange={e => setLoginVal(e.target.value)} />
                 <input 
                     type='password' 
                     name='password' 
-                    className={formStyle.loginForm__input} 
+                    className={adminFormStyle.loginForm__input} 
                     placeholder={'Password...'} 
                     onChange={e => setPasswordVal(e.target.value)}/>
-                <span className={formStyle.loginForm__error}></span>
-                <button className={formStyle.loginForm__btn}>Send</button>
+                <span className={adminFormStyle.loginForm__error}></span>
+                <button className={adminFormStyle.loginForm__btn}>Send</button>
             </form>
         </div>
     )
 };
 
-export default LoginForm;
+export default AdminLoginForm;

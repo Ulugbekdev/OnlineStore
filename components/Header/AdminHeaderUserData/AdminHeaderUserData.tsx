@@ -2,13 +2,13 @@ import { useRouter } from 'next/router';
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
-import { logOutAc } from "../../../redux/reducers/loginReducer";
-import HeaderBtn from '../HeaderBtn/HeaderBtn';
-import userStyle from './HeaderUserData.module.scss';
+import { logOutAc } from "../../../redux/reducers/adminLoginReducer";
+import AdminHeaderBtn from '../AdminHeaderBtn/AdminHeaderBtn';
+import adminHeaderUserStyle from './AdminHeaderUserData.module.scss';
 import { useEffect } from 'react';
 
-const User = (): JSX.Element => {
-    const userName = useAppSelector(state => state.loginPage.userName);
+const AdminHeaderUser = (): JSX.Element => {
+    const userName = useAppSelector(state => state.adminLoginPage.userName);
     const router = useRouter();
     const dispatch = useAppDispatch();
 
@@ -23,21 +23,21 @@ const User = (): JSX.Element => {
     }
 
     return (
-        <div className={userStyle.user}>
-            <HeaderBtn className={userStyle.user__btn}></HeaderBtn>
-            <div className={userStyle.user__heading}>
-                <p className={userStyle.user__name}>
+        <div className={adminHeaderUserStyle.user}>
+            <AdminHeaderBtn className={adminHeaderUserStyle.user__btn}></AdminHeaderBtn>
+            <div className={adminHeaderUserStyle.user__heading}>
+                <p className={adminHeaderUserStyle.user__name}>
                     {userName}
                 </p>
             </div>
             <div>
-                <button className={userStyle.user__logOffBtn} onClick={() => logOutEvent()}>Log out</button>
+                <button className={adminHeaderUserStyle.user__logOffBtn} onClick={() => logOutEvent()}>Log out</button>
             </div>
-            <button className={userStyle.user__btn_calendar}>
+            <button className={adminHeaderUserStyle.user__btn_calendar}>
                 <FontAwesomeIcon icon={faCalendar}/>
             </button>
         </div>
     )
 };
 
-export default User;
+export default AdminHeaderUser;

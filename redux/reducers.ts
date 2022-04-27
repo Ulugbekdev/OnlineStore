@@ -1,12 +1,12 @@
 import { combineReducers } from "@reduxjs/toolkit";
-import loginReducer from './reducers/loginReducer';
-import notesReducer from './reducers/notesReducer';
-import orderssReducer from "./reducers/orderReducer";
-import productsReducer from "./reducers/productsReducer";
+import adminLoginReducer from './reducers/adminLoginReducer';
+import adminNotesReducer from './reducers/adminNotesReducer';
+import adminOrdersReducer from "./reducers/adminOrderReducer";
+import adminProductsReducer from "./reducers/adminProductsReducer";
 
 export const reducers = combineReducers({
-    loginPage: loginReducer,
-    notesPage: notesReducer,
-    productsPage: productsReducer,
-    ordersPage: orderssReducer
+    adminLoginPage: adminLoginReducer,
+    adminNotesPage: adminNotesReducer,
+    adminProductsPage: adminProductsReducer,
+    adminOrdersPage: adminOrdersReducer
 })
