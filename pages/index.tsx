@@ -8,7 +8,7 @@ const Home = (): JSX.Element => {
     const router = useRouter();
 
     useEffect(() => {
-        const userData = getLocalDataUser('userName', 'userId');
+        const userData = getLocalDataUser(false);
         if (!userData.id) router.replace('/login');
     }, []);
 
