@@ -1,7 +1,7 @@
 import { createRef, useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { useAppDispatch } from '../../redux/hooks';
-import { getLoginAc } from '../../redux/reducers/adminLoginReducer';
+import { getLoginAc } from '../../lib/actions';
 import { getLocalDataUser } from '../../lib/localStorage';
 import AdminHeader from '../AdminHeader/AdminHeader';
 import AdminSidebar from '../AdminSidebar/AdminSidebar';

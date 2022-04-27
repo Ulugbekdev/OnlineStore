@@ -1,8 +1,8 @@
-import Head from "next/head";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
-import Main from "../components/Main/Main";
-import { getLocalDataUser } from "../lib/localStorage";
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
+import Main from '../components/Main/Main';
+import { getLocalDataUser } from '../lib/localStorage';
 
 const Home = (): JSX.Element => {
     const router = useRouter();

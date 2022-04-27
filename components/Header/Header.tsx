@@ -1,16 +1,34 @@
 import cs from 'classnames';
+import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBasketShopping } from '@fortawesome/free-solid-svg-icons';
+import { removeLocalDataUser } from '../../lib/localStorage';
+import { logOutAc } from '../../lib/actions';
 import headerStyle from './Header.module.scss';
 
 const Header = (): JSX.Element => {
+    const router = useRouter();
+    const dispatch = useAppDispatch();
+    const userName = useAppSelector(state => state.loginPage.userName);
+
+    useEffect(() => {
+        if (!userName) router.replace('/admin/login');
+    }, [userName])
+
+    const logOutEvent = () => {
+        removeLocalDataUser(false);
+        dispatch(logOutAc());
+    }
+
     return (
         <header className={headerStyle.header}>
             <div className={headerStyle.header__userName}>
-                {'Ulugbek'}
+                {userName}
             </div>
             <div className={headerStyle.header__btnsGroup}>
-                <button className={cs([headerStyle.header__btn, headerStyle.header__logout])}>Logout</button>
+                <button className={cs([headerStyle.header__btn, headerStyle.header__logout])} onClick={() => logOutEvent()}>Logout</button>
                 <button className={cs([headerStyle.header__btn, headerStyle.header__basket])}>
                     <FontAwesomeIcon icon={faBasketShopping} />
                 </button>

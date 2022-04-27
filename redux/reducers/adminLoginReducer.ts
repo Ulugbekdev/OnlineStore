@@ -1,6 +1,6 @@
 import { login } from '../requests/requests';
 import { GET_LOGIN, LOG_OUT } from '../../lib/constants';
-import type { LoginInitialState, GetLoginAcPayload, LoginFormData, LogOutAc, GetLoginAc} from '../../lib/types';
+import type { LoginInitialState } from '../../lib/types';
 
 let initialState: LoginInitialState = {
     userName: null,
@@ -25,6 +25,3 @@ export default function AdminLoginReducer(state = initialState, action): LoginIn
             return state;
     }
 }
-
-export const getLoginAc = (userData: GetLoginAcPayload): GetLoginAc => ({ type: GET_LOGIN, user: userData });
-export const logOutAc = (): LogOutAc => ({ type: LOG_OUT });

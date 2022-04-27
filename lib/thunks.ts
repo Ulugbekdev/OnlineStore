@@ -1,6 +1,6 @@
 import { LoginFormData } from './types';
 import { login } from './../redux/requests/requests';
-import { getLoginAc } from '../redux/reducers/adminLoginReducer';
+import { getLoginAc } from '../lib/actions';
 
 export const loginThunk = (data: LoginFormData, islogin: boolean, isAdmin: boolean) => async dispatch => {
     const res =islogin ? await login.getLogin(data) : await login.register(data);
