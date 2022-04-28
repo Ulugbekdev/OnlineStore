@@ -1,0 +1,43 @@
+@import './colorVariables';
+
+.product {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    &__img {
+        width: 50%;
+
+        span {
+            width: 100%!important;
+            display: block!important;
+        }
+
+        img {
+            object-fit: none;
+            background: $gray;
+            object-position: center;
+        }
+    }
+
+    &__content {
+        width: 45%;
+    }
+
+    &__price {
+        color: $green;
+        margin-bottom: 10px;
+    }
+
+    &__status {
+        color: $gray;
+        margin-bottom: 10px;
+    }
+
+    &__btn {
+        color: $white;
+        font-size: 18px;
+        background: $blue;
+        padding: 10px 20px;
+    }
+}

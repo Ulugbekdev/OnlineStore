@@ -23,7 +23,6 @@ const Products = (): JSX.Element => {
                     <div className={productsStyle.product__content}>
                         <p className={productsStyle.product__name}>{el.name}</p>
                         <p className={productsStyle.product__price}>Price:{el.price}</p>
-                        <p className={productsStyle.product__amount}>Amount:{el.amount}</p>
                         <p className={productsStyle.product__status}>Status:{el.status}</p>
                     </div>
                 </a>

@@ -1,13 +1,14 @@
 import cs from 'classnames';
+import Link from 'next/link';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBasketShopping } from '@fortawesome/free-solid-svg-icons';
-import { removeLocalDataUser } from '../../lib/localStorage';
 import { logOutAc } from '../../lib/actions';
-import headerStyle from './Header.module.scss';
 import { LOG_OUT } from '../../lib/constants';
+import { removeLocalDataUser } from '../../lib/localStorage';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { faBasketShopping } from '@fortawesome/free-solid-svg-icons';
+import headerStyle from './Header.module.scss';
 
 const Header = (): JSX.Element => {
     const router = useRouter();
@@ -29,6 +30,11 @@ const Header = (): JSX.Element => {
                 {userName}
             </div>
             <div className={headerStyle.header__btnsGroup}>
+                <Link href={'/'}>
+                    <a className={headerStyle.header__btn}>
+                        Home
+                    </a>
+                </Link>
                 <button className={cs([headerStyle.header__btn, headerStyle.header__logout])} onClick={() => logOutEvent()}>Logout</button>
                 <button className={cs([headerStyle.header__btn, headerStyle.header__basket])}>
                     <FontAwesomeIcon icon={faBasketShopping} />

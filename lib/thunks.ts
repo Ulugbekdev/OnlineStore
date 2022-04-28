@@ -1,6 +1,6 @@
 import { LoginFormData } from './types';
 import { login, products } from './../redux/requests/requests';
-import { addProductsAc, getLoginAc } from '../lib/actions';
+import { addProductIdAc, addProductsAc, getLoginAc } from '../lib/actions';
 import { ADD_PRODUCTS, ADD_PRODUCTS_ADMIN, GET_LOGIN, GET_LOGIN_ADMIN } from './constants';
 
 export const loginThunk = (data: LoginFormData, islogin: boolean, isAdmin: boolean) => async dispatch => {
@@ -28,3 +28,15 @@ export const productsThunk = (isAdmin: boolean) => async dispatch => {
     const res = await products.getProducts();
     dispatch(addProductsAc(res.data.body, isAdmin ? ADD_PRODUCTS_ADMIN : ADD_PRODUCTS));
 };
+
+export const productThunk = (id: string | Array<string>) => async dispatch => {
+    const res = await products.getProduct(id);
+    const product = res.data.product;
+    dispatch(addProductIdAc({
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        status: product.status,
+        imgSrc: product.imgSrc
+    }));
+}

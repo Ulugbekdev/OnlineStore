@@ -8,6 +8,7 @@
     padding: 20px;
     background: $blue;
     align-items: center;
+    margin-bottom: 30px;
     justify-content: space-between;
 
     &__userName {
@@ -16,6 +17,7 @@
     }
 
     &__btn {
+        color: $white;
         border: none;
         cursor: pointer;
         font-size: 18px;

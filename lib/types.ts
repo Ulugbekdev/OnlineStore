@@ -65,7 +65,6 @@ export type InitialProduct = {
     imgSrc: string | null
     title: string | null
     price: string | null
-    amount: string | null
     id: string | null
     status: boolean,
 }
@@ -80,3 +79,14 @@ export type AddProductsAc = {
 }
 
 export type ArrayProductsRes = Array<InitialProduct>;
+
+//Product with query id types
+export type InitialProductId = {
+    status: boolean
+    id: string | null
+    name: string | null
+    price: string | null
+    imgSrc: string | null
+}
+
+export type ProductIdInitialState = InitialProductId;

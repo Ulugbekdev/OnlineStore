@@ -37,6 +37,9 @@ export const notes = {
 export const products = {
     getProducts(): any {
         return initial.get('products');
+    },
+    getProduct(id): any {
+        return initial.get(`products/${id}`);
     }
 }
 
