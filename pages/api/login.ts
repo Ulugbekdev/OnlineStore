@@ -10,7 +10,7 @@ export default function handler (req: NextApiRequest, res: NextApiResponse) {
         }
 
         const user = rows.filter(el => el.login == req.body.login && el.password == req.body.password ? true : false);
-
+        
         if (user.length > 0) {
             const userData:User = {
                 userName: user[0].login,

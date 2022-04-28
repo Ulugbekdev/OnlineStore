@@ -7,6 +7,7 @@ import AdminHeaderBtn from '../AdminHeaderBtn/AdminHeaderBtn';
 import adminHeaderUserStyle from './AdminHeaderUserData.module.scss';
 import { useEffect } from 'react';
 import { removeLocalDataUser } from '../../../lib/localStorage';
+import { LOG_OUT_ADMIN } from '../../../lib/constants';
 
 const AdminHeaderUser = (): JSX.Element => {
     const userName = useAppSelector(state => state.adminLoginPage.userName);
@@ -19,7 +20,7 @@ const AdminHeaderUser = (): JSX.Element => {
 
     const logOutEvent = () => {
         removeLocalDataUser(true);
-        dispatch(logOutAc());
+        dispatch(logOutAc(LOG_OUT_ADMIN));
     }
 
     return (

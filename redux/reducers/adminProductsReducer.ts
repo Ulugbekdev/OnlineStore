@@ -1,34 +1,13 @@
-import {products} from '../requests/requests';
+import { ADD_PRODUCTS_ADMIN } from '../../lib/constants';
+import type { ProductInitialState } from './../../lib/types';
 
-const ADD_PRODUCTS = 'ADD-PRODUCTS';
-
-type InitialProduct = {
-    imgSrc: string | null
-    title: string | null
-    price: string | null
-    amount: string | null
-    id: string | null
-    status: boolean,
-}
-
-type InitialState = {
-    products: Array<InitialProduct> | null
-};
-
-type AddProductsAc = {
-    type: typeof ADD_PRODUCTS
-    products: Array<InitialProduct> | null
-}
-
-type ArrayProductsRes = Array<InitialProduct>;
-
-let initialState: InitialState = {
+let initialState: ProductInitialState = {
     products: null
 }
 
-export default function productsReducer (state = initialState, action): InitialState {
+export default function productsReducer (state = initialState, action): ProductInitialState {
     switch (action.type) {
-        case ADD_PRODUCTS:
+        case ADD_PRODUCTS_ADMIN:
             return {
                 ...state,
                 products: action.products
@@ -37,10 +16,3 @@ export default function productsReducer (state = initialState, action): InitialS
             return state;
     }
 }
-
-const addProductsAc = (products: ArrayProductsRes): AddProductsAc => ({type: ADD_PRODUCTS, products: products});
-
-export const addProducts = () => async dispatch => {
-    const res = await products.getProducts();
-    dispatch(addProductsAc(res.data.body));
-};

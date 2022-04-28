@@ -1,12 +1,12 @@
-import Head from "next/head";
-import { useRouter } from "next/router";
-import { useState, useEffect } from "react";
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import { useState, useEffect } from 'react';
 import { useAppDispatch } from '../../redux/hooks';
-import { getLocalDataUser } from "../../lib/localStorage";
-import { signInEvent } from "../../lib/events";
-import { loginThunk } from "../../lib/thunks";
-import LoginForm from "../Forms/LoginForm/LoginForm";
-import loginStyle from './Login.module.scss';
+import { getLocalDataUser } from '../../lib/localStorage';
+import { signInEvent } from '../../lib/events';
+import { loginThunk } from '../../lib/thunks';
+import LoginForm from '../Forms/LoginForm/LoginForm';
+import signStyle from '../../styles/CommonSign.module.scss';
 
 const Login = ({isAdmin, ...props}): JSX.Element => {
     const router = useRouter();
@@ -38,10 +38,10 @@ const Login = ({isAdmin, ...props}): JSX.Element => {
             <Head>
                 <title>{isAdmin ? 'Login' : 'Sign in'}</title>
             </Head>
-            <div className={loginStyle.login}>
-                <h1 className={loginStyle.login__heading}>{isAdmin ? 'Login' : 'Sign in'}</h1>
+            <div className={signStyle.sign}>
+                <h1 className={signStyle.sign__heading}>{isAdmin ? 'Login' : 'Sign in'}</h1>
                 <LoginForm submitEvent={submitEvent} />
-                <button className={loginStyle.login__btn} onClick={() => setIsRedirectToRegister(true)}>{isAdmin ? 'Register' : 'Sign up'}</button>
+                <button className={signStyle.sign__btn} onClick={() => setIsRedirectToRegister(true)}>{isAdmin ? 'Register' : 'Sign up'}</button>
             </div>
         </>
     )

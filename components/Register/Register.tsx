@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import { loginThunk } from '../../lib/thunks';
 import { signUpEvent } from '../../lib/events';
 import LoginForm from '../../components/Forms/LoginForm/LoginForm';
-import registerStyle from '../../styles/AdminRegister.module.scss';
+import signStyle from '../../styles/CommonSign.module.scss';
 
 const Register = ({isAdmin, ...props}): JSX.Element => {
     const router = useRouter();
@@ -25,8 +25,8 @@ const Register = ({isAdmin, ...props}): JSX.Element => {
     if (isRedirectToMain) router.replace(isAdmin ? '/admin' : '/');
 
     return (
-        <div className={registerStyle.register}>
-            <h1 className={registerStyle.register__heading}>Registration</h1>
+        <div className={signStyle.sign}>
+            <h1 className={signStyle.sign__heading}>Registration</h1>
             <LoginForm submitEvent={submitEvent} />
         </div>
     )

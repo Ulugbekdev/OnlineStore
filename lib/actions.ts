@@ -1,5 +1,9 @@
-import { GET_LOGIN, LOG_OUT } from "./constants";
 import type { GetLoginAcPayload, GetLoginAc, LogOutAc } from "./types";
+import type {ArrayProductsRes, AddProductsAc} from './types';
 
-export const logOutAc = (): LogOutAc => ({ type: LOG_OUT });
-export const getLoginAc = (userData: GetLoginAcPayload): GetLoginAc => ({ type: GET_LOGIN, user: userData });
+//login action
+export const logOutAc = (type): LogOutAc => ({ type: type });
+export const getLoginAc = (userData: GetLoginAcPayload, type): GetLoginAc => ({ type: type, user: userData });
+
+//product action
+export const addProductsAc = (products: ArrayProductsRes, type): AddProductsAc => ({type: type, products: products});

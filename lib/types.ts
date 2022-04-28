@@ -1,4 +1,4 @@
-import { GET_LOGIN, LOG_OUT } from "./constants"
+import { GET_LOGIN, LOG_OUT, ADD_PRODUCTS } from "./constants"
 
 //types for API routes
 export type Order = {
@@ -59,3 +59,24 @@ export type GetLocalDataUser = {
     login: string | null
     id: string | null
 }
+
+//products types
+export type InitialProduct = {
+    imgSrc: string | null
+    title: string | null
+    price: string | null
+    amount: string | null
+    id: string | null
+    status: boolean,
+}
+
+export type ProductInitialState = {
+    products: Array<InitialProduct> | null
+};
+
+export type AddProductsAc = {
+    type: typeof ADD_PRODUCTS
+    products: Array<InitialProduct> | null
+}
+
+export type ArrayProductsRes = Array<InitialProduct>;

@@ -7,6 +7,7 @@ import { faBasketShopping } from '@fortawesome/free-solid-svg-icons';
 import { removeLocalDataUser } from '../../lib/localStorage';
 import { logOutAc } from '../../lib/actions';
 import headerStyle from './Header.module.scss';
+import { LOG_OUT } from '../../lib/constants';
 
 const Header = (): JSX.Element => {
     const router = useRouter();
@@ -19,7 +20,7 @@ const Header = (): JSX.Element => {
 
     const logOutEvent = () => {
         removeLocalDataUser(false);
-        dispatch(logOutAc());
+        dispatch(logOutAc(LOG_OUT));
     }
 
     return (

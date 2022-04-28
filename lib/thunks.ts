@@ -1,10 +1,10 @@
 import { LoginFormData } from './types';
-import { login } from './../redux/requests/requests';
-import { getLoginAc } from '../lib/actions';
+import { login, products } from './../redux/requests/requests';
+import { addProductsAc, getLoginAc } from '../lib/actions';
+import { ADD_PRODUCTS, ADD_PRODUCTS_ADMIN, GET_LOGIN, GET_LOGIN_ADMIN } from './constants';
 
 export const loginThunk = (data: LoginFormData, islogin: boolean, isAdmin: boolean) => async dispatch => {
     const reqData = isAdmin ? {...data, typeUser: 'admin'} : {...data, typeUser: 'customer'};
-    debugger
     const res = islogin ? await login.getLogin(reqData) : await login.register(reqData);
     const userIdLC = isAdmin ? 'userIdAdmin' : 'userId';
     const userNameLC = isAdmin ? 'userNameAdmin' : 'userName';
@@ -18,8 +18,13 @@ export const loginThunk = (data: LoginFormData, islogin: boolean, isAdmin: boole
             return resolve(dispatch(getLoginAc({
                 userId: userId,
                 userName: userName
-            })));
+            }, isAdmin ? GET_LOGIN_ADMIN : GET_LOGIN)));
         }
         return reject(res.data.message);
     })
+};
+
+export const addProducts = (isAdmin: boolean) => async dispatch => {
+    const res = await products.getProducts();
+    dispatch(addProductsAc(res.data.body, isAdmin ? ADD_PRODUCTS_ADMIN : ADD_PRODUCTS));
 };
