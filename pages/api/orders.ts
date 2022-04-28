@@ -1,8 +1,8 @@
-import { faSortAmountAsc } from "@fortawesome/free-solid-svg-icons";
-import type { NextApiRequest, NextApiResponse } from "next";
-import type { Order } from "../../lib/types";
-import sqlite3 from "sqlite3";
-let db = new sqlite3.Database("./base/admin.db");
+import { faSortAmountAsc } from '@fortawesome/free-solid-svg-icons';
+import type { NextApiRequest, NextApiResponse } from 'next';
+import type { Order } from '../../lib/types';
+import sqlite3 from 'sqlite3';
+let db = new sqlite3.Database('./base/admin.db');
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
     db.all(`SELECT users.login as customer, products.name as product, orders.amount, products.price, orders.status, orders.date, products.price * orders.amount as total 
@@ -26,7 +26,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
             })
 
             res.json({
-                message: "all successful",
+                message: 'all successful',
                 body: row,
                 statusCode: 200
             })

@@ -1,7 +1,7 @@
-import type { NextApiRequest, NextApiResponse } from "next";
-import type { Notes } from "../../../lib/types";
-import sqlite3 from "sqlite3";
-let db = new sqlite3.Database("./base/admin.db");
+import type { NextApiRequest, NextApiResponse } from 'next';
+import type { Notes } from '../../../lib/types';
+import sqlite3 from 'sqlite3';
+let db = new sqlite3.Database('./base/admin.db');
 
 export default function handler (req: NextApiRequest, res: NextApiResponse) {
     db.all(`SELECT * FROM notes WHERE id = ${req.query.id} `, (err, row) => {
@@ -15,7 +15,7 @@ export default function handler (req: NextApiRequest, res: NextApiResponse) {
             }
         }) 
         res.json({
-            message: "all successful",
+            message: 'all successful',
             body: row,
             statusCode: 200
         })

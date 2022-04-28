@@ -1,4 +1,4 @@
-import type { GetLoginAcPayload, GetLoginAc, LogOutAc } from "./types";
+import type { GetLoginAcPayload, GetLoginAc, LogOutAc } from './types';
 import type {ArrayProductsRes, AddProductsAc} from './types';
 
 //login action

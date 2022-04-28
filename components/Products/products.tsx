@@ -1,8 +1,8 @@
-import Image from "next/image";
-import Link from "next/link";
-import { useEffect } from "react";
-import { productsThunk } from "../../lib/thunks";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
+import Image from 'next/image';
+import Link from 'next/link';
+import { useEffect } from 'react';
+import { productsThunk } from '../../lib/thunks';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import productsStyle from './Products.module.scss';
 
 const Products = (): JSX.Element => {
@@ -15,7 +15,7 @@ const Products = (): JSX.Element => {
 
     const productsArray = products && products.map((el: any, index) => {
         return (
-            <Link key={index} href={`/products/${el.id}`}>
+            <Link key={index} href={`/product/${el.id}`}>
                 <a className={productsStyle.product__item}>
                     <div className={productsStyle.product__img}>
                         <Image width={'100vw'} height={200} src={el.imgSrc} alt={el.title} />

@@ -1,8 +1,8 @@
-import Head from "next/head";
-import { useEffect } from "react";
-import AdminMain from "../../components/AdminMain/AdminMain";
-import { useAppDispatch, useAppSelector } from "../../redux/hooks";
-import { addOrders } from "../../redux/reducers/adminOrderReducer";
+import Head from 'next/head';
+import { useEffect } from 'react';
+import AdminMain from '../../components/AdminMain/AdminMain';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { addOrders } from '../../redux/reducers/adminOrderReducer';
 import ordersStyle from '../../styles/AdminOrders.module.scss';
 
 const Orders = (): JSX.Element => {

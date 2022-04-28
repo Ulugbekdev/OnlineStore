@@ -1,5 +1,5 @@
-import { faBars, faVolumeDown, faEarthAmericas, faChartPie } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBars, faVolumeDown, faEarthAmericas, faChartPie } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import AdminHeaderBtn from '../AdminHeaderBtn/AdminHeaderBtn';
 import adminBtnsStyle from './AdminHeaderBtnsGroup.module.scss';
 

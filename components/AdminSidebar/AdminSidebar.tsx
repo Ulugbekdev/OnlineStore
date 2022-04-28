@@ -1,5 +1,5 @@
-import { faNoteSticky, faP, faCartShopping, faHome } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faNoteSticky, faP, faCartShopping, faHome } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Burger from '../AdminBurger/AdminBurger';
 import adminSidebarStyle from './AdminSidebar.module.scss';
 import Link from 'next/link';

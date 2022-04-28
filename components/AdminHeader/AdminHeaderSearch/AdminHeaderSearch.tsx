@@ -1,6 +1,6 @@
 import { createRef } from 'react';
-import { faSearch, faClose } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch, faClose } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import AdminHeaderBtn from '../AdminHeaderBtn/AdminHeaderBtn';
 import adminSearchStyle from './AdminHeaderSearch.module.scss';
 
@@ -17,7 +17,7 @@ const AdminHeaderSearch = (): JSX.Element => {
 
     return (
         <div className={adminSearchStyle.search} ref={searchRef}>
-            <input className={adminSearchStyle.search__input} type="text" name="search" placeholder="Type to search..." />
+            <input className={adminSearchStyle.search__input} type='text' name='search' placeholder='Type to search...' />
             <AdminHeaderBtn className={adminSearchStyle.search__btnOpen} clickEvent={clickOpenEvent}>
                 <FontAwesomeIcon icon={faSearch} />
             </AdminHeaderBtn>

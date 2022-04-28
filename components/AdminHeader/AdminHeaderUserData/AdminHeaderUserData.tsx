@@ -1,8 +1,8 @@
 import { useRouter } from 'next/router';
-import { faCalendar } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCalendar } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
-import { logOutAc } from "../../../lib/actions";
+import { logOutAc } from '../../../lib/actions';
 import AdminHeaderBtn from '../AdminHeaderBtn/AdminHeaderBtn';
 import adminHeaderUserStyle from './AdminHeaderUserData.module.scss';
 import { useEffect } from 'react';

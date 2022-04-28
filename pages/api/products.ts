@@ -1,10 +1,10 @@
-import type { NextApiRequest, NextApiResponse } from "next";
-import type { Product } from "../../lib/types";
-import sqlite3 from "sqlite3";
-let db = new sqlite3.Database("./base/admin.db");
+import type { NextApiRequest, NextApiResponse } from 'next';
+import type { Product } from '../../lib/types';
+import sqlite3 from 'sqlite3';
+let db = new sqlite3.Database('./base/admin.db');
 
 export default function handler (req: NextApiRequest, res: NextApiResponse) {
-    db.all("SELECT * FROM products", (err, row) => {
+    db.all('SELECT * FROM products', (err, row) => {
         if (err) return res.json({ message: err, statusCode: 500 });
         const arrayProducts: Array<Product> = row.map((el):Product => {
             return {
@@ -16,7 +16,7 @@ export default function handler (req: NextApiRequest, res: NextApiResponse) {
             }
         });
         res.json({
-            message: "all successful",
+            message: 'all successful',
             body: arrayProducts,
             statusCode: 200
         })
