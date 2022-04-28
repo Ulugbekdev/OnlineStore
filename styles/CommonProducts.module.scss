@@ -2,6 +2,7 @@
 
 .product {
     display: flex;
+    margin: 0 -15px;
     align-items: flex-start;
     justify-content: flex-start;
 
@@ -18,7 +19,7 @@
         }
 
         img {
-            object-fit: cover;
+            object-fit: none;
             background: $gray;
             object-position: center;
             border-radius: 10px 10px 0 0;

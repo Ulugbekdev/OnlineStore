@@ -2,16 +2,16 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { useEffect } from 'react';
 import AdminMain from '../../components/AdminMain/AdminMain';
+import { productsThunk } from '../../lib/thunks';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { addProducts } from '../../redux/reducers/adminProductsReducer';
-import productsStyle from '../../styles/AdminProducts.module.scss';
+import productsStyle from '../../styles/CommonProducts.module.scss';
 
 const Products = (): JSX.Element => {
     const dispatch = useAppDispatch();
     const products = useAppSelector(state => state.adminProductsPage.products);
 
     useEffect(() => {
-        dispatch(addProducts());
+        dispatch(productsThunk(true));
     }, [])
     
     const productsArray = products && products.map((el: any, index) => {

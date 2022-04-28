@@ -6,6 +6,7 @@ import { getLocalDataUser } from '../../lib/localStorage';
 import AdminHeader from '../AdminHeader/AdminHeader';
 import AdminSidebar from '../AdminSidebar/AdminSidebar';
 import adminMainStyle from './AdminMain.module.scss';
+import { GET_LOGIN_ADMIN } from '../../lib/constants';
 
 const AdminMain = ({ children, ...props }): JSX.Element => {
     const [isChangeWidth, setIsChangeWidth] = useState(false);
@@ -19,7 +20,7 @@ const AdminMain = ({ children, ...props }): JSX.Element => {
         dispatch(getLoginAc({
             userId: userData.id,
             userName: userData.login
-        }));
+        }, GET_LOGIN_ADMIN));
     }, []);
 
     useEffect(() => {

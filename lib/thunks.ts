@@ -24,7 +24,7 @@ export const loginThunk = (data: LoginFormData, islogin: boolean, isAdmin: boole
     })
 };
 
-export const addProducts = (isAdmin: boolean) => async dispatch => {
+export const productsThunk = (isAdmin: boolean) => async dispatch => {
     const res = await products.getProducts();
     dispatch(addProductsAc(res.data.body, isAdmin ? ADD_PRODUCTS_ADMIN : ADD_PRODUCTS));
 };
