@@ -1,10 +1,10 @@
+import cs from 'classnames';
 import Head from 'next/head';
 import { createRef, useEffect, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import cs from 'classnames';
 import { getLocalDataUser } from '../../lib/localStorage';
-import { addNotes, delNotes, getNotes } from '../../redux/reducers/adminNotesReducer';
 import AdminMain from '../../components/AdminMain/AdminMain';
+import { useAppDispatch, useAppSelector } from '../../redux/hooks';
+import { addNotesThunk, delNotesThunk, getNotesThunk } from '../../lib/thunks';
 import notesStyle from '../../styles/AdminNotes.module.scss';
 
 export default function Notes(): JSX.Element {
@@ -17,7 +17,7 @@ export default function Notes(): JSX.Element {
 
 	useEffect(() => {
 		const userData = getLocalDataUser(true);
-		dispatch(getNotes(userData.id));
+		dispatch(getNotesThunk(userData.id));
 	}, []);
 
 	const submitEvent = (e) => {
@@ -31,7 +31,7 @@ export default function Notes(): JSX.Element {
 			text: notesVal,
 		};
 
-		dispatch(addNotes(newData)).then(() => dispatch(getNotes(userId)));
+		dispatch(addNotesThunk(newData)).then(() => dispatch(getNotesThunk(userId)));
 		setDateVal('');
 		setNotesVal('');
 	};
@@ -44,7 +44,7 @@ export default function Notes(): JSX.Element {
 			date: delDateVal,
 			text: delTextVal,
 		};
-		dispatch(delNotes(newData)).then(() => dispatch(getNotes(userId)));
+		dispatch(delNotesThunk(newData)).then(() => dispatch(getNotesThunk(userId)));
 	};
 
 	const arrayNotes = notes && notes.map((el: any, index) => {

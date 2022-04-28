@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import { useEffect } from 'react';
 import AdminMain from '../../components/AdminMain/AdminMain';
+import { addOrdersThunk } from '../../lib/thunks';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
-import { addOrders } from '../../redux/reducers/adminOrderReducer';
 import ordersStyle from '../../styles/AdminOrders.module.scss';
 
 const Orders = (): JSX.Element => {
@@ -10,7 +10,7 @@ const Orders = (): JSX.Element => {
     const orders = useAppSelector(state => state.adminOrdersPage.orders);
 
     useEffect(() => {
-        dispatch(addOrders());
+        dispatch(addOrdersThunk());
     }, []);
 
     const ordersArray = orders && orders.map((el: any, index): JSX.Element => {

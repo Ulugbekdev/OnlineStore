@@ -1,28 +1,11 @@
-import {orders} from '../requests/requests';
+import { ADD_ORDERS } from '../../lib/constants';
+import type { OrderInitialState } from '../../lib/types';
 
-const ADD_ORDERS = 'ADD-ORDERS';
-
-type InitialOrder = {
-    customer: string | null
-    title: string | null
-}
-
-type InitialState = {
-    orders: Array<InitialOrder> | null
-};
-
-type AddOrdersAc = {
-    type: typeof ADD_ORDERS
-    orders: Array<InitialOrder> | null
-}
-
-type ArrayOrdersRes = Array<InitialOrder>;
-
-let initialState: InitialState = {
+let initialState: OrderInitialState = {
     orders: null
 }
 
-export default function orderssReducer (state = initialState, action): InitialState {
+export default function orderssReducer(state = initialState, action): OrderInitialState {
     switch (action.type) {
         case ADD_ORDERS:
             return {
@@ -33,10 +16,3 @@ export default function orderssReducer (state = initialState, action): InitialSt
             return state;
     }
 }
-
-const addOrdersAc = (orders: ArrayOrdersRes): AddOrdersAc => ({type: ADD_ORDERS, orders: orders});
-
-export const addOrders = () => async dispatch => {
-    const res = await orders.getOrders();
-    dispatch(addOrdersAc(res.data.body));
-};

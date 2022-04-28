@@ -1,34 +1,11 @@
-import {notes} from '../requests/requests';
+import { ADD_NOTES } from './../../lib/constants';
+import type { NotesInitialState } from './../../lib/types';
 
-const ADD_NOTES = 'ADD-NOTES';
-
-type InitialNotes = {
-    text: string
-    date: string
-}
-
-type InitialState = {
-    notes: Array<InitialNotes> | null
-};
-
-type AddNotesAc = {
-    type: typeof ADD_NOTES
-    notes: Array<InitialNotes>
-}
-
-type GetNotes = string | null;
-
-type NotesFormData = {
-    id: string | null
-    date: string | null
-    text: string | null
-}
-
-let initialState: InitialState = {
+let initialState: NotesInitialState = {
     notes: null
 }
 
-export default function notesReducer (state = initialState, action): InitialState {
+export default function notesReducer (state = initialState, action): NotesInitialState {
     switch (action.type) {
         case ADD_NOTES:
             return {
@@ -39,18 +16,3 @@ export default function notesReducer (state = initialState, action): InitialStat
             return state;
     }
 }
-
-const addNotesAc = (notes): AddNotesAc => ({type: ADD_NOTES, notes: notes});
-
-export const getNotes = (userId: GetNotes) => async dispatch => {
-    const res = await notes.getNotes(userId);
-    dispatch(addNotesAc(res.data.body));
-};
-
-export const addNotes = (data: NotesFormData) => dispatch => {
-    return notes.addNotes(data);
-};
-
-export const delNotes = (data: NotesFormData) => dispatch => {
-    return notes.delNotes(data);
-};

@@ -1,8 +1,8 @@
+//login thunk
+import { login } from '../redux/requests/requests';
+import {GET_LOGIN, GET_LOGIN_ADMIN } from './constants'; 
+import { getLoginAc } from '../lib/actions';
 import { LoginFormData } from './types';
-import { cart, login, products } from './../redux/requests/requests';
-import { addProductIdAc, addProductsAc, getLoginAc } from '../lib/actions';
-import { ADD_PRODUCTS, ADD_PRODUCTS_ADMIN, GET_LOGIN, GET_LOGIN_ADMIN } from './constants';
-
 export const loginThunk = (data: LoginFormData, islogin: boolean, isAdmin: boolean) => async dispatch => {
     const reqData = isAdmin ? {...data, typeUser: 'admin'} : {...data, typeUser: 'customer'};
     const res = islogin ? await login.getLogin(reqData) : await login.register(reqData);
@@ -24,6 +24,10 @@ export const loginThunk = (data: LoginFormData, islogin: boolean, isAdmin: boole
     })
 };
 
+//products thunk
+import { products } from '../redux/requests/requests';
+import { ADD_PRODUCTS, ADD_PRODUCTS_ADMIN} from './constants';
+import { addProductIdAc, addProductsAc} from '../lib/actions';
 export const productsThunk = (isAdmin: boolean) => async dispatch => {
     const res = await products.getProducts();
     dispatch(addProductsAc(res.data.body, isAdmin ? ADD_PRODUCTS_ADMIN : ADD_PRODUCTS));
@@ -41,6 +45,33 @@ export const productThunk = (id: string | Array<string>) => async dispatch => {
     }));
 }
 
+//cart shoppping thunk
+import { cart } from '../redux/requests/requests';
 export const addCartThunk = (data) => async dispatch => {
     const res = await cart.addCart(data);
+};
+
+//notes thunk
+import { addNotesAc } from '../lib/actions';
+import { GetNotes, NotesFormData } from './types';
+import { notes } from '../redux/requests/requests';
+export const getNotesThunk = (userId: GetNotes) => async dispatch => {
+    const res = await notes.getNotes(userId);
+    dispatch(addNotesAc(res.data.body));
+};
+
+export const addNotesThunk = (data: NotesFormData) => dispatch => {
+    return notes.addNotes(data);
+};
+
+export const delNotesThunk = (data: NotesFormData) => dispatch => {
+    return notes.delNotes(data);
+};
+
+//order thunk
+import { orders } from '../redux/requests/requests';
+import { addOrdersAc } from '../lib/actions';
+export const addOrdersThunk = () => async dispatch => {
+    const res = await orders.getOrders();
+    dispatch(addOrdersAc(res.data.body));
 };
