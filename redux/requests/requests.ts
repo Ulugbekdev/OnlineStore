@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from 'axios';
 
 const initial = axios.create({
     baseURL: 'http://localhost:3000/api/',
@@ -46,5 +46,12 @@ export const products = {
 export const orders = {
     getOrders(): any {
         return initial.get('orders');
+    }
+}
+
+export const cart = {
+    addCart (data: any): any {
+        const jsonData = JSON.stringify(data);
+        return initial.post('add-cart', jsonData);
     }
 }

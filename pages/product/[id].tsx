@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { useEffect } from 'react';
 import { useRouter } from 'next/router';
-import { productThunk } from '../../lib/thunks';
+import { addCartThunk, productThunk } from '../../lib/thunks';
 import Container from '../../components/Container/Container';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import productIdStyle from '../../styles/ProductId.module.scss';
@@ -11,13 +11,17 @@ const ProductId = (): JSX.Element => {
     const router = useRouter();
     const dispatch = useAppDispatch();
     const product = useAppSelector(state => state.productIdPage);
+    const userId = useAppSelector(state => state.loginPage.userId);
 
     useEffect(() => {
         dispatch(productThunk(router.query.id));
     }, []);
 
     const submitEvent = () => {
-        
+        dispatch(addCartThunk({
+            customerId: userId,
+            productId: product.id
+        }));
     }
 
     return (
@@ -28,7 +32,7 @@ const ProductId = (): JSX.Element => {
             <Container>
                 <div className={productIdStyle.product}>
                     <div className={productIdStyle.product__img}>
-                        <Image src={product.imgSrc} alt={product.name} width={100} height={300}/>
+                        {/* <Image src={product.imgSrc} alt={product.name} width={100} height={300}/> */}
                     </div>
                     <div className={productIdStyle.product__content}>
                         <h2 className={productIdStyle.product__name}>{product.name}</h2>

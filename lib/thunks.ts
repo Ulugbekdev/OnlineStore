@@ -1,5 +1,5 @@
 import { LoginFormData } from './types';
-import { login, products } from './../redux/requests/requests';
+import { cart, login, products } from './../redux/requests/requests';
 import { addProductIdAc, addProductsAc, getLoginAc } from '../lib/actions';
 import { ADD_PRODUCTS, ADD_PRODUCTS_ADMIN, GET_LOGIN, GET_LOGIN_ADMIN } from './constants';
 
@@ -40,3 +40,7 @@ export const productThunk = (id: string | Array<string>) => async dispatch => {
         imgSrc: product.imgSrc
     }));
 }
+
+export const addCartThunk = (data) => async dispatch => {
+    const res = await cart.addCart(data);
+};
