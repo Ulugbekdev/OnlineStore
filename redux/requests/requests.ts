@@ -50,8 +50,11 @@ export const orders = {
 }
 
 export const cart = {
-    addCart (data: any): any {
-        const jsonData = JSON.stringify(data);
-        return initial.post('add-cart', jsonData);
+    getCart(userId: any): any {
+        return initial.get(`cart/${userId}`);
     }
+    // addCart (data: any): any {
+    //     const jsonData = JSON.stringify(data);
+    //     return initial.post('add-cart', jsonData);
+    // }
 }

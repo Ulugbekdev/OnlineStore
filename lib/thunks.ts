@@ -45,12 +45,6 @@ export const productThunk = (id: string | Array<string>) => async dispatch => {
     }));
 }
 
-//cart shoppping thunk
-import { cart } from '../redux/requests/requests';
-export const addCartThunk = (data) => async dispatch => {
-    const res = await cart.addCart(data);
-};
-
 //notes thunk
 import { addNotesAc } from '../lib/actions';
 import { GetNotes, NotesFormData } from './types';
@@ -74,4 +68,12 @@ import { addOrdersAc } from '../lib/actions';
 export const addOrdersThunk = () => async dispatch => {
     const res = await orders.getOrders();
     dispatch(addOrdersAc(res.data.body));
+};
+
+//cart shoppping thunk
+import { cart } from '../redux/requests/requests';
+import { getCartAc } from './actions';
+export const getCartThunk = (userId: any) => async dispatch => {
+    const res = await cart.getCart(userId);
+    dispatch(getCartAc(res.data.products));
 };

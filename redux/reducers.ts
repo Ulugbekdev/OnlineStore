@@ -3,6 +3,7 @@ import adminLoginReducer from './reducers/adminLoginReducer';
 import adminNotesReducer from './reducers/adminNotesReducer';
 import adminOrdersReducer from "./reducers/adminOrderReducer";
 import adminProductsReducer from "./reducers/adminProductsReducer";
+import cartReducer from "./reducers/cartReducer";
 import loginReducer from "./reducers/loginReducer";
 import productIdReducer from "./reducers/productIdReducer";
 import productsReducer from "./reducers/productsReducer";
@@ -14,5 +15,6 @@ export const reducers = combineReducers({
     adminOrdersPage: adminOrdersReducer,
     loginPage: loginReducer,
     productsPage: productsReducer,
-    productIdPage: productIdReducer
+    productIdPage: productIdReducer,
+    cartPage: cartReducer
 })

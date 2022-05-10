@@ -11,3 +11,5 @@ export const ADD_PRODUCTS_ADMIN = 'ADD-PRODUCTS-ADMIN';
 export const ADD_NOTES = 'ADD-NOTES';
 //order reducer constants
 export const ADD_ORDERS = 'ADD-ORDERS';
+//cart reducer constants
+export const GET_CART = 'GET-CART';

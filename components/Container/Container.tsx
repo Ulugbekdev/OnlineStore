@@ -1,7 +1,7 @@
 import Header from '../Header/Header';
 import containerStyle from './Container.module.scss';
 
-const Main = ({children, ...props}): JSX.Element => {    
+const Container = ({children, ...props}): JSX.Element => {    
     return (
         <div className={containerStyle.container}>
             <Header/>
@@ -10,4 +10,4 @@ const Main = ({children, ...props}): JSX.Element => {
     )
 };
 
-export default Main;
+export default Container;

@@ -1,6 +1,6 @@
 import cs from 'classnames';
 import Link from 'next/link';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 import { logOutAc } from '../../lib/actions';
 import { LOG_OUT } from '../../lib/constants';
@@ -24,6 +24,10 @@ const Header = (): JSX.Element => {
         dispatch(logOutAc(LOG_OUT));
     }
 
+    const cartClickEvent = () => {
+        router.replace('/cart');
+    }
+
     return (
         <header className={headerStyle.header}>
             <div className={headerStyle.header__userName}>
@@ -36,7 +40,7 @@ const Header = (): JSX.Element => {
                     </a>
                 </Link>
                 <button className={cs([headerStyle.header__btn, headerStyle.header__logout])} onClick={() => logOutEvent()}>Logout</button>
-                <button className={cs([headerStyle.header__btn, headerStyle.header__basket])}>
+                <button className={cs([headerStyle.header__btn, headerStyle.header__basket])} onClick={() => cartClickEvent()}>
                     <FontAwesomeIcon icon={faBasketShopping} />
                 </button>
             </div>

@@ -21,3 +21,8 @@ export const addNotesAc = (notes): AddNotesAc => ({type: ADD_NOTES, notes: notes
 import { ADD_ORDERS} from './constants';
 import type { ArrayOrdersRes, AddOrdersAc } from './types';
 export const addOrdersAc = (orders: ArrayOrdersRes): AddOrdersAc => ({ type: ADD_ORDERS, orders: orders });
+
+//cart action 
+import { GET_CART } from './constants';
+import { GetCartAc, ArrayCartRes } from './types';
+export const getCartAc = (products: ArrayCartRes): GetCartAc => ({type: GET_CART, products: products});

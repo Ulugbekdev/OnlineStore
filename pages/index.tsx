@@ -5,7 +5,7 @@ import { getLoginAc } from '../lib/actions';
 import { getLocalDataUser } from '../lib/localStorage';
 import { useAppDispatch } from '../redux/hooks';
 import { GET_LOGIN } from '../lib/constants';
-import Main from '../components/Container/Container';
+import Container from '../components/Container/Container';
 import Products from '../components/Products/products';
 
 const Home = (): JSX.Element => {
@@ -26,9 +26,9 @@ const Home = (): JSX.Element => {
             <Head>
                 <title>Home</title>
             </Head>
-            <Main>
+            <Container>
                 <Products/>
-            </Main>
+            </Container>
         </>
     )
 }

@@ -1,0 +1,15 @@
+@import './colorVariables.scss';
+
+.cart {
+    &__list {
+        list-style: none;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__item {
+        font-size: 18px;
+        font-weight: 600;
+    }
+}
