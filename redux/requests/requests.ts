@@ -14,21 +14,21 @@ export const login = {
     },
     register(data): any {
         const jsonData = JSON.stringify(data);
-        return initial.post('registration', jsonData);
+        return initial.post('register', jsonData);
     }
 }
 
 export const notes = {
     addNotes(data): any {
         const jsonData = JSON.stringify(data);
-        return initial.post('add-notes', jsonData);
+        return initial.post('notes/add', jsonData);
     },
     getNotes(userId): any {
         return initial.get(`notes/${userId}`);
     },
     delNotes(data): any {
         const jsonData = JSON.stringify(data);
-        return initial.delete('del-notes', {
+        return initial.delete('notes/del', {
             data: jsonData
         });
     }
@@ -52,9 +52,9 @@ export const orders = {
 export const cart = {
     getCart(userId: any): any {
         return initial.get(`cart/${userId}`);
+    },
+    addCart (data: any): any {
+        const jsonData = JSON.stringify(data);
+        return initial.post('cart/add', jsonData);
     }
-    // addCart (data: any): any {
-    //     const jsonData = JSON.stringify(data);
-    //     return initial.post('add-cart', jsonData);
-    // }
 }

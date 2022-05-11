@@ -20,7 +20,8 @@ const ProductId = (): JSX.Element => {
     const submitEvent = () => {
         dispatch(addCartThunk({
             customerId: userId,
-            productId: product.id
+            productId: product.id,
+            userId: userId
         }));
     }
 

@@ -77,3 +77,6 @@ export const getCartThunk = (userId: any) => async dispatch => {
     const res = await cart.getCart(userId);
     dispatch(getCartAc(res.data.products));
 };
+export const addCartThunk = (data: any) => async dispatch => {
+    await cart.addCart(data);
+};
