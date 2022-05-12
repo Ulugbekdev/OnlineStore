@@ -10,12 +10,10 @@
 
         span {
             width: 100%!important;
-            display: block!important;
         }
 
         img {
-            object-fit: none;
-            background: $gray;
+            object-fit: contain;
             object-position: center;
         }
     }
