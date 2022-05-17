@@ -20,9 +20,28 @@
 
     &__item {
         width: 100%;
+        display: flex;
         font-size: 18px;
         font-weight: 600;
+        align-items: center;
         text-align: center;
         max-width: calc(100% / 4);
+        justify-content: center;
+    }
+
+    &__controlBtn { 
+        width: 40px;
+        height: 40px;
+        color: $white;
+        margin: 0 10px;
+        background: $gray;
+
+        &_plus {
+            background: $blue;
+        }
+
+        &_minus {
+            background: $red;
+        }
     }
 }

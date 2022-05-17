@@ -28,12 +28,12 @@ export const loginThunk = (data: LoginFormData, islogin: boolean, isAdmin: boole
 import { products } from '../redux/requests/requests';
 import { ADD_PRODUCTS, ADD_PRODUCTS_ADMIN} from './constants';
 import { addProductIdAc, addProductsAc} from '../lib/actions';
-export const productsThunk = (isAdmin: boolean) => async dispatch => {
+export const productsThunk = (isAdmin: boolean) => async (dispatch: any) => {
     const res = await products.getProducts();
     dispatch(addProductsAc(res.data.body, isAdmin ? ADD_PRODUCTS_ADMIN : ADD_PRODUCTS));
 };
 
-export const productThunk = (id: string | Array<string>) => async dispatch => {
+export const productThunk = (id: string | Array<string>) => async (dispatch: any) => {
     const res = await products.getProduct(id);
     const product = res.data.product;
     dispatch(addProductIdAc({
@@ -54,18 +54,18 @@ export const getNotesThunk = (userId: GetNotes) => async dispatch => {
     dispatch(addNotesAc(res.data.body));
 };
 
-export const addNotesThunk = (data: NotesFormData) => dispatch => {
+export const addNotesThunk = (data: NotesFormData) => () => {
     return notes.addNotes(data);
 };
 
-export const delNotesThunk = (data: NotesFormData) => dispatch => {
+export const delNotesThunk = (data: NotesFormData) => () => {
     return notes.delNotes(data);
 };
 
 //order thunk
 import { orders } from '../redux/requests/requests';
 import { addOrdersAc } from '../lib/actions';
-export const addOrdersThunk = () => async dispatch => {
+export const addOrdersThunk = () => async (dispatch: any) => {
     const res = await orders.getOrders();
     dispatch(addOrdersAc(res.data.body));
 };
@@ -73,10 +73,16 @@ export const addOrdersThunk = () => async dispatch => {
 //cart shoppping thunk
 import { cart } from '../redux/requests/requests';
 import { getCartAc } from './actions';
-export const getCartThunk = (userId: any) => async dispatch => {
+export const getCartThunk = (userId: any) => async (dispatch: any) => {
     const res = await cart.getCart(userId);
     dispatch(getCartAc(res.data.products));
 };
-export const addCartThunk = (data: any) => async dispatch => {
+export const addCartThunk = (data: any) => async () => {
     await cart.addCart(data);
+};
+export const increaseNumberCartThunk = (data: any) => async (dispatch: any) => {
+    await cart.increaseNumber(data);
+};
+export const decreaseQuantityCartThunk = (data: any) => async (dispatch: any) => {
+    await cart.decreaseQuantity(data);
 };

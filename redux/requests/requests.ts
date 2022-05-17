@@ -56,5 +56,13 @@ export const cart = {
     addCart (data: any): any {
         const jsonData = JSON.stringify(data);
         return initial.post('cart/add', jsonData);
+    }, 
+    increaseNumber (data: any) {
+        const jsonData = JSON.stringify(data);
+        return initial.post('cart/increase-number', jsonData);
+    },
+    decreaseQuantity (data: any) {
+        const jsonData = JSON.stringify(data);
+        return initial.post('cart/decrease-quantity', jsonData);
     }
 }

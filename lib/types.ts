@@ -133,6 +133,7 @@ export type ArrayOrdersRes = Array<InitialOrder>;
 
 //Cart types
 export type InitialCart = {
+    id: string | null
     name: string | null
     price: string | null
     amount: string | null

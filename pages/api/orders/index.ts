@@ -9,7 +9,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
                 INNER JOIN products ON order_products.product_id = products.id
                 INNER JOIN orders ON order_products.order_id = orders.id
                 INNER JOIN users ON order_products.customer_id = users.id`,
-        (err, rows) => {
+        (err: any, rows: any) => {
             if (err) return res.json({ message: err, statusCode: 500 });
 
             res.json({

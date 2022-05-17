@@ -4,7 +4,7 @@ import sqlite3 from 'sqlite3';
 let db = new sqlite3.Database('./base/admin.db');
 
 export default function handler (req: NextApiRequest, res: NextApiResponse) {
-    db.all('SELECT * FROM products', (err, row) => {
+    db.all('SELECT * FROM products', (err: any, row: any) => {
         if (err) return res.json({ message: err, statusCode: 500 });
         const arrayProducts: Array<Product> = row.map((el):Product => {
             return {

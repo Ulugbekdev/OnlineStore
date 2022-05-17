@@ -1,9 +1,11 @@
 import Head from 'next/head';
 import cs from 'classNames';
 import { useEffect } from 'react';
-import { getCartThunk } from '../lib/thunks';
+import { decreaseQuantityCartThunk, getCartThunk, increaseNumberCartThunk } from '../lib/thunks';
 import Container from '../components/Container/Container';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
+import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import cartStyle from '../styles/Cart.module.scss';
 
 const Cart = (): JSX.Element => {
@@ -14,6 +16,20 @@ const Cart = (): JSX.Element => {
     useEffect(() => {
         dispatch(getCartThunk(userId));
     }, [])
+
+    const increaseProductEvent = (userId, productId) => {
+        dispatch(increaseNumberCartThunk({
+            userId: userId,
+            productId: productId
+        })).then(() => dispatch(getCartThunk(userId)));
+    }
+
+    const decreaseProductEvent = (userId, productId) => {
+        dispatch(decreaseQuantityCartThunk({
+            userId: userId,
+            productId: productId
+        })).then(() => dispatch(getCartThunk(userId)));
+    }
 
     const productsCart = arrayProductsCart && arrayProductsCart.map(el => {
         return (
@@ -26,7 +42,17 @@ const Cart = (): JSX.Element => {
                         {el.price}
                     </li>
                     <li className={cartStyle.cart__item}>
-                        {el.amount}
+                        <button
+                            onClick={() => increaseProductEvent(userId, el.id)}
+                            className={cs([cartStyle.cart__controlBtn, cartStyle.cart__controlBtn_plus])}>
+                            <FontAwesomeIcon icon={faPlus} />
+                        </button>
+                        <p>{el.amount}</p>
+                        <button 
+                            onClick={() => decreaseProductEvent(userId, el.id)}
+                            className={cs([cartStyle.cart__controlBtn, cartStyle.cart__controlBtn_minus])}>
+                            <FontAwesomeIcon icon={faMinus} />
+                        </button>
                     </li>
                     <li className={cartStyle.cart__item}>
                         {el.total}
