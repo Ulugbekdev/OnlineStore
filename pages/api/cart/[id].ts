@@ -8,7 +8,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
             return res.json({ message: 'set user error status code 500', statusCode: 500 });
         }
 
-        const arrayProductsCart = rows.map(el => {
+        const arrayProductsCart = rows.map((el: any) => {
             return {
                 ...el,
                 id: el.product_id,

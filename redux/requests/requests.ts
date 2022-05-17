@@ -46,6 +46,10 @@ export const products = {
 export const orders = {
     getOrders(): any {
         return initial.get('orders');
+    },
+    addOrder(data: any): any {
+        const jsonData = JSON.stringify(data);
+        return initial.post('orders/add', jsonData);
     }
 }
 

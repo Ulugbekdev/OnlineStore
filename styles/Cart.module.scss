@@ -44,4 +44,12 @@
             background: $red;
         }
     }
+
+    &__btn {
+        width: 100%;
+        color: $white;
+        font-size: 18px;
+        background: $blue; 
+        padding: 10px 20px;
+    }
 }

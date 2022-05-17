@@ -80,6 +80,9 @@ export const getCartThunk = (userId: any) => async (dispatch: any) => {
 export const addCartThunk = (data: any) => async () => {
     await cart.addCart(data);
 };
+export const addOrderCartThunk = (data: any) => async () => {
+    await orders.addOrder(data);
+}
 export const increaseNumberCartThunk = (data: any) => async (dispatch: any) => {
     await cart.increaseNumber(data);
 };

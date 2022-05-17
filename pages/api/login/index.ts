@@ -9,7 +9,7 @@ export default function handler (req: NextApiRequest, res: NextApiResponse) {
             return res.json({ message: 'error status code 500', statusCode: 500 })
         }
 
-        const user = rows.filter(el => el.login == req.body.login && el.password == req.body.password ? true : false);
+        const user = rows.filter((el: any) => el.login == req.body.login && el.password == req.body.password ? true : false);
         
         if (user.length > 0) {
             const userData:User = {

@@ -1,7 +1,7 @@
 import Head from 'next/head';
 import cs from 'classNames';
 import { useEffect } from 'react';
-import { decreaseQuantityCartThunk, getCartThunk, increaseNumberCartThunk } from '../lib/thunks';
+import { addOrderCartThunk, decreaseQuantityCartThunk, getCartThunk, increaseNumberCartThunk } from '../lib/thunks';
 import Container from '../components/Container/Container';
 import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
@@ -62,6 +62,15 @@ const Cart = (): JSX.Element => {
         )
     })
 
+    const addOrderEvent = (userId) => {
+        const currentDate = new Date().toLocaleDateString();
+
+        dispatch(addOrderCartThunk({
+            userId: userId,
+            date: currentDate
+        })).then(() => dispatch(getCartThunk(userId)));
+    }
+
     return (
         <>
             <Head>
@@ -84,6 +93,9 @@ const Cart = (): JSX.Element => {
                         </li>
                     </ul>
                     {productsCart}
+                    <button className={cartStyle.cart__btn} onClick={() => addOrderEvent(userId)}>
+                        Buy
+                    </button>
                 </div>
             </Container>
         </>
