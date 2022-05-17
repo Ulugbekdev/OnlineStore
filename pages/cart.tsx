@@ -34,7 +34,7 @@ const Cart = (): JSX.Element => {
     const productsCart = arrayProductsCart && arrayProductsCart.map(el => {
         return (
             <>
-                <ul className={cartStyle.cart__list}>
+                <ul className={cartStyle.cart__list} key={el.id}>
                     <li className={cartStyle.cart__item}>
                         {el.name}
                     </li>

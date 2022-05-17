@@ -1,4 +1,3 @@
-import { login } from '../requests/requests';
 import { GET_LOGIN_ADMIN, LOG_OUT_ADMIN } from '../../lib/constants';
 import type { LoginInitialState } from '../../lib/types';
 

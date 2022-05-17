@@ -41,7 +41,10 @@ const Login = ({isAdmin, ...props}): JSX.Element => {
             <div className={signStyle.sign}>
                 <h1 className={signStyle.sign__heading}>{isAdmin ? 'Login' : 'Sign in'}</h1>
                 <LoginForm submitEvent={submitEvent} />
-                <button className={signStyle.sign__btn} onClick={() => setIsRedirectToRegister(true)}>{isAdmin ? 'Register' : 'Sign up'}</button>
+                {isAdmin 
+                    ? null 
+                    : <button className={signStyle.sign__btn} onClick={() => setIsRedirectToRegister(true)}>{isAdmin ? 'Register' : 'Sign up'}</button>
+                }
             </div>
         </>
     )
