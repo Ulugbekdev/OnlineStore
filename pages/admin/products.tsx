@@ -2,7 +2,8 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { useEffect } from 'react';
 import AdminMain from '../../components/AdminMain/AdminMain';
-import { productsThunk } from '../../lib/thunks';
+import ProductForm from '../../components/Forms/ProductForm/ProductForm';
+import { addProductThunk, productsThunk } from '../../lib/thunks';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import productsStyle from '../../styles/CommonProducts.module.scss';
 
@@ -13,6 +14,10 @@ const Products = (): JSX.Element => {
     useEffect(() => {
         dispatch(productsThunk(true));
     }, [])
+
+    const submitEvent = (data: any, event: any) => {
+        dispatch(addProductThunk(data)).then(() => dispatch(productsThunk(true)));
+    }
     
     const productsArray = products && products.map((el: any, index) => {
         return (
@@ -35,6 +40,7 @@ const Products = (): JSX.Element => {
                 <title>Products</title>
             </Head>
             <AdminMain>
+                <ProductForm submitEvent={submitEvent}/> 
                 <div className={productsStyle.product}>
                     {productsArray}
                 </div>

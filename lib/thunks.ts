@@ -45,6 +45,10 @@ export const productThunk = (id: string | Array<string>) => async (dispatch: any
     }));
 }
 
+export const addProductThunk = (data: any) => async () => {
+    const res = await products.addProduct(data);
+}
+
 //notes thunk
 import { addNotesAc } from '../lib/actions';
 import { GetNotes, NotesFormData } from './types';

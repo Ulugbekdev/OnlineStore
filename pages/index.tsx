@@ -6,7 +6,7 @@ import { getLocalDataUser } from '../lib/localStorage';
 import { useAppDispatch } from '../redux/hooks';
 import { GET_LOGIN } from '../lib/constants';
 import Container from '../components/Container/Container';
-import Products from '../components/Products/products';
+import Products from '../components/Products/Products';
 
 const Home = (): JSX.Element => {
     const router = useRouter();
