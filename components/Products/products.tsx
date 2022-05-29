@@ -15,18 +15,20 @@ const Products = (): JSX.Element => {
 
     const productsArray = products && products.map((el: any, index) => {
         return (
-            <Link key={index} href={`/product/${el.id}`}>
-                <a className={productsStyle.product__item}>
-                    <div className={productsStyle.product__img}>
-                        <Image width={'100vw'} height={200} src={el.imgSrc} alt={el.title} />
-                    </div>
-                    <div className={productsStyle.product__content}>
-                        <p className={productsStyle.product__name}>{el.name}</p>
-                        <p className={productsStyle.product__price}>Price:{el.price}</p>
-                        <p className={productsStyle.product__status}>Status:{el.status}</p>
-                    </div>
-                </a>
-            </Link>
+            <div key={index} className={productsStyle.product__wrapper}>
+                <Link href={`/product/${el.id}`}>
+                    <a className={productsStyle.product__item}>
+                        <div className={productsStyle.product__img}>
+                            <Image width={'100vw'} height={200} src={el.imgSrc} alt={el.title} />
+                        </div>
+                        <div className={productsStyle.product__content}>
+                            <p className={productsStyle.product__name}>{el.name}</p>
+                            <p className={productsStyle.product__price}>Price:{el.price}</p>
+                            <p className={productsStyle.product__status}>Status:{el.status}</p>
+                        </div>
+                    </a>
+                </Link>
+            </div>
         )
     })
 
