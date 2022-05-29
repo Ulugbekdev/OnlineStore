@@ -18,13 +18,7 @@
     }
 
     &__formBtn {
-        width: 100px;
-        height: 30px;
-        border: none;
-        color: $white;
-        display: block;
-        margin: 0 auto;
-        background: $blue;
+        margin: 20px auto 0;
     }
 
     &__formError {
@@ -51,6 +45,7 @@
         display: block;
         border-radius: 10px;
         border: 2px solid $blue;
+        box-shadow: 3px 3px 5px 3px rgba(63, 106, 216, 0.5);
 
         & + & {
             margin-top: 20px;
@@ -72,9 +67,15 @@
 
     &__listBtn {
         width: auto;
-        color: $white;
+        color: $red;
         padding: 10px;
         font-size: 16px;
-        background: $red;
+        background: transparent;
+        transition: .2s background linear, .2s color linear;
+
+        &:hover {
+            color: $white;
+            background: $red;
+        }
     }
 }

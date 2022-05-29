@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import cs from 'classNames';
+import cs from 'classnames';
 import { useEffect } from 'react';
 import { addOrderCartThunk, decreaseQuantityCartThunk, getCartThunk, increaseNumberCartThunk } from '../lib/thunks';
 import Container from '../components/Container/Container';
@@ -93,7 +93,7 @@ const Cart = (): JSX.Element => {
                         </li>
                     </ul>
                     {productsCart}
-                    <button className={cartStyle.cart__btn} onClick={() => addOrderEvent(userId)}>
+                    <button className={cs([cartStyle.cart__btn, 'btn'])} onClick={() => addOrderEvent(userId)}>
                         Buy
                     </button>
                 </div>

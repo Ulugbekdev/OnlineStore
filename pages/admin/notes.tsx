@@ -89,7 +89,7 @@ export default function Notes(): JSX.Element {
 							onChange={(e) => setNotesVal(e.target.value)}
 						/>
 						<span className={notesStyle.notes__formError} ref={errorVal} />
-						<button className={notesStyle.notes__formBtn}>Add notes</button>
+						<button className={cs([notesStyle.notes__formBtn, 'btn'])}>Add notes</button>
 					</form>
 					<ul className={notesStyle.notes__list}>{arrayNotes}</ul>
 				</div>

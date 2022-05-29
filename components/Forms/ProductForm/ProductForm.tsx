@@ -1,3 +1,4 @@
+import cs from 'classnames';
 import { createRef, useRef, useState } from 'react';
 import productFormStyle from './ProductForm.module.scss';
 
@@ -63,7 +64,7 @@ const ProductForm = ({ submitEvent, ...props }): JSX.Element => {
                     placeholder={'Img src...'}
                     onChange={e => setImgVal(e.target.value)} />
                 <span className={productFormStyle.productForm__error} ref={errorMessage}></span>
-                <button className={productFormStyle.productForm__btn}>Add</button>
+                <button className={cs([productFormStyle.productForm__btn, 'btn'])}>Add</button>
             </form>
         </div>
     )

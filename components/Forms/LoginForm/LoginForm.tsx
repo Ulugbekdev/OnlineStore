@@ -1,3 +1,4 @@
+import cs from 'classnames';
 import { useState } from 'react';
 import adminFormStyle from './LoginForm.module.scss';
 
@@ -37,7 +38,7 @@ const LoginForm = ({submitEvent, ...props}): JSX.Element => {
                     placeholder={'Password...'} 
                     onChange={e => setPasswordVal(e.target.value)}/>
                 <span className={adminFormStyle.loginForm__error}></span>
-                <button className={adminFormStyle.loginForm__btn}>Send</button>
+                <button className={cs([adminFormStyle.loginForm__btn, 'btn'])}>Send</button>
             </form>
         </div>
     )

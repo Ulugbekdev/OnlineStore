@@ -1,3 +1,4 @@
+import cs from 'classnames';
 import Head from 'next/head';
 import Image from 'next/image';
 import { useEffect } from 'react';
@@ -41,7 +42,7 @@ const ProductId = (): JSX.Element => {
                         <h2 className={productIdStyle.product__name}>{product.name}</h2>
                         <h3 className={productIdStyle.product__price}>{product.price}</h3>
                         <p className={productIdStyle.product__status}>{product.status}</p>
-                        <button className={productIdStyle.product__btn} onClick={() => submitEvent()}>Add to cart</button>
+                        <button className={cs([productIdStyle.product__btn, 'btn'])} onClick={() => submitEvent()}>Add to cart</button>
                     </div>
                 </div>
             </Container>

@@ -27,15 +27,6 @@
     }
 
     &__btn {
-        width: 60px;
-        height: 30px;
-        border: none;
-        display: flex;
-        color: $white;
-        cursor: pointer;
         margin: 20px auto 0;
-        background: $blue;
-        align-items: center;
-        justify-content: center;
     }
 }

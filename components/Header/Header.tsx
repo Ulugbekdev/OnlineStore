@@ -1,4 +1,4 @@
-import cs from 'classNames';
+import cs from 'classnames';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
