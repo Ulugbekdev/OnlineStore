@@ -7,6 +7,7 @@ import { useAppDispatch, useAppSelector } from '../redux/hooks';
 import { faPlus, faMinus } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import cartStyle from '../styles/Cart.module.scss';
+import { CartProduct } from '../lib/types/cartType/cartType';
 
 const Cart = (): JSX.Element => {
     const dispatch = useAppDispatch();
@@ -31,7 +32,7 @@ const Cart = (): JSX.Element => {
         })).then(() => dispatch(getCartThunk(userId)));
     }
 
-    const productsCart = arrayProductsCart && arrayProductsCart.map(el => {
+    const productsCart = arrayProductsCart && arrayProductsCart.map((el: CartProduct): JSX.Element => {
         return (
             <>
                 <ul className={cartStyle.cart__list} key={el.id}>
@@ -48,7 +49,7 @@ const Cart = (): JSX.Element => {
                             <FontAwesomeIcon icon={faPlus} />
                         </button>
                         <p>{el.amount}</p>
-                        <button 
+                        <button
                             onClick={() => decreaseProductEvent(userId, el.id)}
                             className={cs([cartStyle.cart__controlBtn, cartStyle.cart__controlBtn_minus])}>
                             <FontAwesomeIcon icon={faMinus} />
@@ -93,9 +94,11 @@ const Cart = (): JSX.Element => {
                         </li>
                     </ul>
                     {productsCart}
-                    <button className={cs([cartStyle.cart__btn, 'btn'])} onClick={() => addOrderEvent(userId)}>
+                    {productsCart.length === 0
+                    ? <h1>No orders</h1>
+                    :<button className={cs([cartStyle.cart__btn, 'btn'])} onClick={() => addOrderEvent(userId)}>
                         Buy
-                    </button>
+                    </button>}
                 </div>
             </Container>
         </>

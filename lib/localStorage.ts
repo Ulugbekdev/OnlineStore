@@ -1,4 +1,4 @@
-import { GetLocalDataUser } from './types';
+import { GetLocalDataUser } from './types/localDataType/localDataType';
 
 export const getLocalDataUser = (isAdmin: boolean): GetLocalDataUser => {
     const userIdLS = isAdmin ? localStorage.getItem('userIdAdmin') : localStorage.getItem('userId');
@@ -18,4 +18,4 @@ export const removeLocalDataUser = (isAdmin: boolean) => {
     }
     localStorage.removeItem('userId');
     localStorage.removeItem('userName');
-}
+};

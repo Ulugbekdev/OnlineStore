@@ -2,7 +2,7 @@
 import { login } from '../redux/requests/requests';
 import {GET_LOGIN, GET_LOGIN_ADMIN } from './constants'; 
 import { getLoginAc } from '../lib/actions';
-import { LoginFormData } from './types';
+import { LoginFormData } from './types/loginType/loginType';
 export const loginThunk = (data: LoginFormData, islogin: boolean, isAdmin: boolean) => async dispatch => {
     const reqData = isAdmin ? {...data, typeUser: 'admin'} : {...data, typeUser: 'customer'};
     const res = islogin ? await login.getLogin(reqData) : await login.register(reqData);
@@ -28,6 +28,7 @@ export const loginThunk = (data: LoginFormData, islogin: boolean, isAdmin: boole
 import { products } from '../redux/requests/requests';
 import { ADD_PRODUCTS, ADD_PRODUCTS_ADMIN} from './constants';
 import { addProductIdAc, addProductsAc} from '../lib/actions';
+import { ProductData } from './types/productType/productType';
 export const productsThunk = (isAdmin: boolean) => async (dispatch: any) => {
     const res = await products.getProducts();
     dispatch(addProductsAc(res.data.body, isAdmin ? ADD_PRODUCTS_ADMIN : ADD_PRODUCTS));
@@ -35,14 +36,17 @@ export const productsThunk = (isAdmin: boolean) => async (dispatch: any) => {
 
 export const productThunk = (id: string | Array<string>) => async (dispatch: any) => {
     const res = await products.getProduct(id);
-    const product = res.data.product;
-    dispatch(addProductIdAc({
-        id: product.id,
-        name: product.name,
-        price: product.price,
-        status: product.status,
-        imgSrc: product.imgSrc
-    }));
+    const resProduct = res.data.product;
+
+    const product: ProductData = {
+        id: resProduct.id,
+        title: resProduct.name,
+        price: resProduct.price,
+        status: resProduct.status,
+        imgSrc: resProduct.imgSrc
+    };
+    
+    dispatch(addProductIdAc(product));
 }
 
 export const addProductThunk = (data: any) => async () => {
@@ -51,7 +55,7 @@ export const addProductThunk = (data: any) => async () => {
 
 //notes thunk
 import { addNotesAc } from '../lib/actions';
-import { GetNotes, NotesFormData } from './types';
+import { GetNotes, NotesFormData } from './types/notesType/notesType';
 import { notes } from '../redux/requests/requests';
 export const getNotesThunk = (userId: GetNotes) => async dispatch => {
     const res = await notes.getNotes(userId);

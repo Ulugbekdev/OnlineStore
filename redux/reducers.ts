@@ -1,7 +1,7 @@
 import { combineReducers } from "@reduxjs/toolkit";
 import adminLoginReducer from './reducers/adminLoginReducer';
-import adminNotesReducer from './reducers/adminNotesReducer';
-import adminOrdersReducer from "./reducers/adminOrderReducer";
+import adminNotesReducer from './reducers/notesReducer';
+import adminOrdersReducer from "./reducers/orderReducer";
 import adminProductsReducer from "./reducers/adminProductsReducer";
 import cartReducer from "./reducers/cartReducer";
 import loginReducer from "./reducers/loginReducer";

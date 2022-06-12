@@ -1,11 +1,11 @@
 import { ADD_PRODUCTS } from '../../lib/constants';
-import type { ProductInitialState } from './../../lib/types';
+import type { ProductInitialState, AddProductsAc } from './../../lib/types/productType/productType';
 
 let initialState: ProductInitialState = {
     products: null
 }
 
-export default function productsReducer (state = initialState, action): ProductInitialState {
+export default function productsReducer (state = initialState, action: AddProductsAc): ProductInitialState {
     switch (action.type) {
         case ADD_PRODUCTS:
             return {

@@ -1,6 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import sqlite3 from 'sqlite3';
 let db = new sqlite3.Database('./base/admin.db');
+import { OrderProduct } from './../../../lib/types/orderType/orderType';
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
     db.all(
@@ -9,8 +10,9 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
         INNER JOIN users ON orders.customer_id = users.id`,
         (err: any, rows: any) => {
             if (err) return res.json({ message: err, statusCode: 500 });
-            const arrayOrders = rows.map((el: any) => {
+            const arrayOrders: Array<OrderProduct> = rows.map((el: any): OrderProduct => {
                 return {
+                    title: el.name,
                     product: el.name,
                     price: el.price,
                     customer: el.login,

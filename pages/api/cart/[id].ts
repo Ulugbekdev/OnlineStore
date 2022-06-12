@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import sqlite3 from 'sqlite3';
+import { CartProduct } from '../../../lib/types/cartType/cartType';
 let db = new sqlite3.Database('./base/admin.db');
 
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
@@ -8,11 +9,11 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
             return res.json({ message: 'set user error status code 500', statusCode: 500 });
         }
 
-        const arrayProductsCart = rows.map((el: any) => {
+        const arrayProductsCart: Array<CartProduct> = rows.map((el: any): CartProduct => {
             return {
                 ...el,
                 id: el.product_id,
-                total: el.amount * +el.price
+                total: +el.amount * +el.price
             }
         });        
         
